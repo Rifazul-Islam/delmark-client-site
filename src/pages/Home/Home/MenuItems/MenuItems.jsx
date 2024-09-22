@@ -24,6 +24,11 @@ const MenuItems = () => {
           <MenuCard item={item} key={item._id} />
         ))}
       </div>
+      <div>
+        <button className="btn btn-outline border-0 border-b-4 px-[30px]">
+          Show More
+        </button>
+      </div>
     </div>
   );
 };

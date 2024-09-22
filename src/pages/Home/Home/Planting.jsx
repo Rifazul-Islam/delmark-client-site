@@ -4,7 +4,7 @@ const Planting = () => {
   return (
     <div className="relative">
       <img
-        className="w-full  h-auto md:h-[460px] rounded-lg"
+        className="w-full bg-fixed  h-auto md:h-[460px] rounded-lg"
         src={plantin}
         alt=""
       />
