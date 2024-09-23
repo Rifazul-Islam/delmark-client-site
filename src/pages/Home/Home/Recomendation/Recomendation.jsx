@@ -7,7 +7,7 @@ const Recomendation = () => {
 
       <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {/* 01 */}
-        <div className="card p-1.5 card-compact bg-base-100 shadow-xl">
+        <div className="card  p-1.5 card-compact bg-base-100 shadow-xl">
           <figure>
             <img
               className="w-full"
