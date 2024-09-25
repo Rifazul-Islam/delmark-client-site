@@ -17,7 +17,7 @@ const Testimonials = () => {
       .then((data) => setAllReview(data));
   }, []);
 
-  console.log(allReview);
+  // console.log(allReview);
 
   return (
     <div className="my-20">

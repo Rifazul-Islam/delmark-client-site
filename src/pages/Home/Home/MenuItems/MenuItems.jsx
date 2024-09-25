@@ -7,18 +7,6 @@ const MenuItems = () => {
 
   const popular = menu.filter((item) => item.category === "popular");
 
-  // const [menu, setMenu] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("menu.json")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       let menuItems = data.filter((item) => item.category === "popular");
-  //       setMenu(menuItems);
-  //     });
-  // }, []);
-
-  //   console.log(menu);
   return (
     <div className="mb-16">
       <SelectTitle subTitle={"check it out"} title={"order online"} />

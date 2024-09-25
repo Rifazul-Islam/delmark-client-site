@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MenuCard from "../../Home/Home/MenuItems/MenuCard";
 import Cover from "../../Shared/Cover";
 
@@ -10,7 +11,13 @@ const MenuCategory = ({ items, title, img }) => {
           <MenuCard item={item} key={item._id} />
         ))}
       </div>
-      <div></div>
+      <div className="overflow-hidden">
+        <Link to={`/order/${title}`}>
+          <button className="bg-[#E8E8E8] border-b-4 border-[#BB8506] hover:border-transparent shadow-lg text-[#BB8506] rounded-lg hover:bg-[#1F2937]  transition-all duration-300 px-[30px] py-3">
+            Order Now
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
