@@ -6,6 +6,7 @@ import useMenu from "../../../hooks/useMenu";
 import OrderTab from "../OrderTab/OrderTab";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import "./Order.css";
 const Order = () => {
   const [menu] = useMenu();
   const categories = ["salad", "soup", "dessert", "drink"];
@@ -26,13 +27,13 @@ const Order = () => {
       <Cover img="https://i.ibb.co.com/C2Pzqmg/pexels2.jpg" title="Our Order" />
 
       <Tabs
-        className="my-10"
+        className=" mt-8"
         selectedIndex={tabIndex}
         onSelect={(index) => setTabIndex(index)}
       >
-        <TabList className="mb-10">
-          {categories.map((item) => (
-            <Tab>{item}</Tab>
+        <TabList className="uppercase">
+          {categories.map((item, indx) => (
+            <Tab key={indx}>{item}</Tab>
           ))}
         </TabList>
 
