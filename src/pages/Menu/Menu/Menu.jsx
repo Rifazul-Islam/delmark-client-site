@@ -12,7 +12,7 @@ const Menu = () => {
   const soup = menu.filter((item) => item.category === "soup");
 
   return (
-    <div>
+    <div className="px-4">
       <Helmet>
         <title>Our Menu</title>
       </Helmet>

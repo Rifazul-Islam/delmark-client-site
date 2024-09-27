@@ -14,7 +14,7 @@ const Planting = () => {
 
       {/* Overlay Content */}
       <div className="relative z-10 flex md:items-center justify-center h-full">
-        <div className="w-9/12 mx-auto h-56 md:h-[200px] rounded-lg bg-[#ffffff]   flex items-center justify-center">
+        <div className="w-9/12 mt-16 md:mt-0 mx-auto h-56 md:h-[200px] rounded-lg bg-[#ffffff] flex items-center justify-center">
           <h3 className="text-center text-3xl font-bold">
             Planting Vegetables
           </h3>

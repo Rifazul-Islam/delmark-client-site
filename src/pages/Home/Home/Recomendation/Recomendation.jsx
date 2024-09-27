@@ -5,7 +5,7 @@ const Recomendation = () => {
     <div className="my-10">
       <SelectTitle subTitle={"Should Try"} title={"CHEF RECOMMENDS"} />
 
-      <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className=" grid grid-cols-1 md:grid-cols-3 px-4 lg:grid-cols-4 gap-6">
         {/* 01 */}
         <div className="card  p-1.5 card-compact bg-base-100 shadow-xl">
           <figure>
