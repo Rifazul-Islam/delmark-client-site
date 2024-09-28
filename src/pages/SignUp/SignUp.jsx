@@ -1,49 +1,18 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
-import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
-const Login = () => {
-  const textCaptcha = useRef();
-  const [disabled, setDisabled] = useState(true);
-
-  const { loginUser } = useContext(AuthContext);
-
-  useEffect(() => {
-    loadCaptchaEnginge(6);
-  }, []);
-
+const SignUp = () => {
   const loginHandler = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     const result = { email, password };
-
-    loginUser(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-    });
   };
-
-  const handlerValidateCaptcha = () => {
-    const user_captcha_value = textCaptcha.current.value;
-    if (validateCaptcha(user_captcha_value)) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
-
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse w-full">
         <div className="text-center lg:w-1/2 w-full lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold">Sign Up</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
@@ -83,41 +52,14 @@ const Login = () => {
               </label>
             </div>
 
-            {/* Captucha  Area */}
-
-            <div className="form-control">
-              <label className="label top-0">
-                <LoadCanvasTemplate />
-              </label>
-              <input
-                ref={textCaptcha}
-                type="text"
-                name="captcha"
-                placeholder="write captcha"
-                className="input input-bordered"
-                required
-              />
-              <button
-                onClick={handlerValidateCaptcha}
-                className="mt-3 btn btn-outline btn-xs"
-              >
-                Valided
-              </button>
-            </div>
-
             <div className="form-control mt-6">
-              <input
-                disabled={disabled}
-                className="btn btn-primary"
-                type="submit"
-                value="Login"
-              />
+              <input className="btn btn-primary" type="submit" value="SignUp" />
             </div>
           </form>
           <p className="p-2">
             New User
-            <Link className="text-blue-600" to="/signUp">
-              Go To SignUp
+            <Link className="text-blue-600" to="/login">
+              Go To Login
             </Link>
           </p>
         </div>
@@ -126,4 +68,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

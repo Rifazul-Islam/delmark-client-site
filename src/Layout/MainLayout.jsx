@@ -5,7 +5,10 @@ import Navbar from "../pages/Shared/Navbar";
 
 const MainLayout = () => {
   const location = useLocation();
-  const noNavberFooter = location.pathname.includes("/login");
+  const noNavberFooter =
+    location.pathname.includes("/login") ||
+    location.pathname.includes("/signUp");
+
   return (
     <div>
       {noNavberFooter || <Navbar></Navbar>}
