@@ -8,10 +8,13 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { FaArrowRight, FaGithub, FaGoogle } from "react-icons/fa";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const { loginUser } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -64,84 +67,116 @@ const Login = () => {
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="flex justify-center  my-4 px-3">
       <Helmet>
         <title> delMark | Login </title>
       </Helmet>
-      <div className="hero-content flex-col lg:flex-row-reverse w-full">
-        <div className="text-center lg:w-1/2 w-full lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+
+      <div className="card bg-base-100 border-2 lg:w-1/2  w-full shadow-2xl">
+        <h1 className="text-3xl font-bold text-center mt-2">Login now!</h1>
+        <form onSubmit={loginHandler} className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              className="input input-bordered"
+              required
+            />
+          </div>
+
+          <div className="form-control relative">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type={isOpen ? "text" : "password"}
+              name="password"
+              placeholder="password"
+              className="input input-bordered"
+              required
+            />
+            <label className=" flex justify-end ">
+              <a
+                href="#"
+                className="pt-1 text-sm text-black font-semibold link link-hover"
+              >
+                Forgot password?
+              </a>
+            </label>
+
+            {/* LuEye Show  */}
+            <div
+              onClick={() => setIsOpen(!isOpen)}
+              className="cursor-pointer absolute bottom-10 right-4 text-lg"
+            >
+              {isOpen ? (
+                <>
+                  <LuEyeOff />
+                </>
+              ) : (
+                <>
+                  <LuEye />
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Captucha  Area */}
+
+          <div className="form-control">
+            <label className="label top-0 ">
+              <LoadCanvasTemplate />
+            </label>
+            <input
+              onBlur={handlerValidateCaptcha}
+              type="text"
+              name="captcha"
+              placeholder="write captcha"
+              className="input input-bordered"
+              required
+            />
+          </div>
+
+          <div className="form-control mt-6">
+            <input
+              disabled={disabled}
+              className="btn text-md bg-black text-white hover:bg-gray-700"
+              type="submit"
+              value="Login"
+            />
+            <p>
+              <FaArrowRight className=" text-white text-md  -mt-8 ml-[286px]" />
+            </p>
+          </div>
+        </form>
+
+        <div className="divider">OR Continue With </div>
+        <div className="grid gap-4 grid-cols-1 my-4 md:grid-cols-2 lg:grid-cols-2 px-3">
+          <div className="flex justify-center p-4 items-center border-[1px] border-gray-400  gap-2 shadow-lg cursor-pointer rounded-lg">
+            <p>
+              <FaGoogle className="text-2xl font-bold" />
+            </p>
+            <p> Sign Up With Google</p>
+          </div>
+
+          <div className="flex justify-center p-4 items-center cursor-pointer border-[1px] border-gray-400 gap-2 shadow-lg rounded-lg">
+            <p>
+              <FaGithub className="text-2xl font-bold" />
+            </p>
+            <p> Sign Up With Google</p>
+          </div>
         </div>
-        <div className="card bg-base-100 lg:w-1/2  w-full shadow-2xl">
-          <form onSubmit={loginHandler} className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
 
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-
-            {/* Captucha  Area */}
-
-            <div className="form-control">
-              <label className="label top-0">
-                <LoadCanvasTemplate />
-              </label>
-              <input
-                onBlur={handlerValidateCaptcha}
-                type="text"
-                name="captcha"
-                placeholder="write captcha"
-                className="input input-bordered"
-                required
-              />
-            </div>
-
-            <div className="form-control mt-6">
-              <input
-                disabled={disabled}
-                className="btn btn-primary"
-                type="submit"
-                value="Login"
-              />
-            </div>
-          </form>
-          <p className="p-2">
-            New User
-            <Link className="text-blue-600 pl-1" to="/signUp">
-              Go To SignUp
-            </Link>
-          </p>
-        </div>
+        <p className="p-2 text-sm">
+          New User
+          <Link className="text-blue-600 pl-1" to="/signUp">
+            Go To SignUp
+          </Link>
+        </p>
       </div>
     </div>
   );

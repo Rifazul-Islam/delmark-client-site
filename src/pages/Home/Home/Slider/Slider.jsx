@@ -8,7 +8,18 @@ import "swiper/css/navigation";
 import "./Slider.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
 const Slider = () => {
+  const [sliders, setSliders] = useState([]);
+
+  useEffect(() => {
+    fetch("slides.json")
+      .then((res) => res.json())
+      .then((data) => setSliders(data));
+  }, []);
+
+  console.log(sliders);
+
   return (
     <Swiper
       spaceBetween={30}
@@ -22,38 +33,29 @@ const Slider = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper md:h-[500px] w-full"
+      className=" md:h-[80vh] h-auto rounded-lg"
     >
-      <SwiperSlide>
-        <div>
-          <img src="https://plus.unsplash.com/premium_photo-1680344513206-8f3420af1d22?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div>
-          <img
-            className="w-full"
-            src="https://media.istockphoto.com/id/176602698/photo/potato-and-wheat-field.jpg?s=612x612&w=0&k=20&c=Q1xwRlhD24P4AA_UQZz4I-Wmo-nPQajiHSOnwCDYm2E="
-            alt="slider"
-          />
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className="h-6">
-          <img src="https://plus.unsplash.com/premium_photo-1726729328727-ed63661c8fc3?q=80&w=1396&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div>
-          <img
-            className=""
-            src="https://plus.unsplash.com/premium_photo-1686878940830-9031355ec98c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="slider"
-          />
-        </div>
-      </SwiperSlide>
+      {sliders.map((slide, index) => (
+        <SwiperSlide key={index}>
+          <div className="relative w-full h-full">
+            <img
+              src={slide.image}
+              alt={slide.title}
+              layout="fill"
+              objectFit="cover"
+              priority={index === 0}
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <div className="text-center text-white px-4">
+                <h2 className="text-4xl md:text-6xl font-bold mb-4">
+                  {slide.title}
+                </h2>
+                <p className="text-xl md:text-2xl">{slide.description}</p>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase-confice";
 
 import {
@@ -22,6 +22,15 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // Update User Profile
+
+  const udateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   // user Login function
@@ -57,6 +66,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     loginUser,
     userLogout,
+    udateUserProfile,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

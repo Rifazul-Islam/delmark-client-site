@@ -1,0 +1,22 @@
+[
+  {
+    "image": "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=1920&q=80",
+    "title": "Fresh from the Farm",
+    "description": "Discover our locally sourced, organic vegetables"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=1920&q=80",
+    "title": "Colorful Variety",
+    "description": "Explore our wide range of nutritious vegetables"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&w=1920&q=80",
+    "title": "Farm to Table",
+    "description": "Experience the freshness of our hand-picked produce"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1920&q=80",
+    "title": "Healthy Living",
+    "description": "Nourish your body with our premium vegetables"
+  }
+]

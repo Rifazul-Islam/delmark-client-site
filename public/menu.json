@@ -454,5 +454,33 @@
     "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
     "category": "soup",
     "price": 10.5
+  },
+  {
+    "name": "Organic Kale",
+    "description": "Fresh, crisp kale leaves. Rich in vitamins and antioxidants.",
+    "price": 3.99,
+    "category": "pro",
+    "image": "https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?w=500&q=80"
+  },
+  {
+    "name": "Heirloom Tomatoes",
+    "description": "Vibrant, flavorful tomatoes in various colors and sizes.",
+    "category": "pro",
+    "price": 4.5,
+    "image": "https://images.unsplash.com/photo-1518977822534-7049a61ee0c2?w=500&q=80"
+  },
+  {
+    "name": "Rainbow Carrots",
+    "description": "A colorful mix of purple, orange, and yellow carrots.",
+    "price": 3.75,
+    "category": "pro",
+    "image": "https://images.unsplash.com/photo-1447175008436-054170c2e979?w=500&q=80"
+  },
+  {
+    "name": "Baby Spinach",
+    "description": "Tender, nutrient-packed spinach leaves. Perfect for salads.",
+    "price": 3.25,
+    "category": "pro",
+    "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500&q=80"
   }
 ]

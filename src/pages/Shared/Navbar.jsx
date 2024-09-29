@@ -43,23 +43,6 @@ const Navbar = () => {
       <li>
         <Link to="/secret"> Secret </Link>
       </li>
-
-      {user ? (
-        <>
-          <button
-            onClick={handlerLogout}
-            className="btn btn-xs btn-primary mt-1.5"
-          >
-            SignOut
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login"> Login</Link>
-          </li>
-        </>
-      )}
     </>
   );
 
@@ -99,7 +82,22 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <>
+              <button
+                onClick={handlerLogout}
+                className="btn btn-md px-8  mt-1.5"
+              >
+                SignOut
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="btn btn-md px-8">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>
