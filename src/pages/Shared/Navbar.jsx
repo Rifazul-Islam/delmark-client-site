@@ -42,6 +42,7 @@ const Navbar = () => {
       <Link to="/order/salad"> Order </Link>
 
       <Link to="/secret"> Secret </Link>
+      {user?.email && <Link to="/dashboard"> Dashboard</Link>}
 
       <button className="btn btn-xs mt-1 text-lg">
         <FaShoppingCart />
@@ -51,8 +52,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className=" pb-[72px]">
-      <div className="navbar bg-green-950 mx-auto fixed z-20 text-white">
+    <div className=" pb-[72px] ">
+      <div className="navbar bg-green-950  mx-auto fixed z-20 text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
