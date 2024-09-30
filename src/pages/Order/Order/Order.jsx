@@ -24,7 +24,10 @@ const Order = () => {
       <Helmet>
         <title>Order</title>
       </Helmet>
-      <Cover img="https://i.ibb.co.com/C2Pzqmg/pexels2.jpg" title="Our Order" />
+      <Cover
+        img="https://plus.unsplash.com/premium_photo-1664302148512-ddea30cd2a92?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        title="Our Order"
+      />
 
       <Tabs
         className=" mt-8"

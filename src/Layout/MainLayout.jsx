@@ -12,7 +12,9 @@ const MainLayout = () => {
   return (
     <div>
       {noNavberFooter || <Navbar></Navbar>}
-      <Outlet> </Outlet>
+      <div className="max-w-6xl mx-auto">
+        <Outlet> </Outlet>
+      </div>
       {noNavberFooter || <Footer></Footer>}
     </div>
   );

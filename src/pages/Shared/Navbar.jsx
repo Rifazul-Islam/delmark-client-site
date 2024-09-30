@@ -47,8 +47,8 @@ const Navbar = () => {
   );
 
   return (
-    <>
-      <div className="navbar bg-[#ffffff]max-w-6xl mx-auto">
+    <div className=" bg-base-100 border">
+      <div className="navbar max-w-6xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,7 +69,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {menuItems}
             </ul>
@@ -79,7 +79,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{menuItems}</ul>
+          <ul className="menu menu-horizontal px-1 ">{menuItems}</ul>
         </div>
         <div className="navbar-end">
           {user ? (
@@ -100,7 +100,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

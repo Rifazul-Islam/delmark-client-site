@@ -9,7 +9,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <HelmetProvider>
-        <div className="max-w-6xl mx-auto">
+        <div>
           <RouterProvider router={router} />
         </div>
       </HelmetProvider>

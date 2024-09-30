@@ -5,11 +5,11 @@ import useMenu from "../../../../hooks/useMenu";
 const MenuItems = () => {
   const [menu] = useMenu();
 
-  const popular = menu.filter((item) => item.category === "pro");
-  console.log(popular);
+  let popular = menu.filter((item) => item.category === "popular");
+  console.log("check the Popurlar Data", popular);
 
   return (
-    <div className="mb-16">
+    <div className="mb-16 bg-base-100">
       <SelectTitle subTitle={"check it out"} title={"order online"} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8 px-3">

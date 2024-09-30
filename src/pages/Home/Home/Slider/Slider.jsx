@@ -18,7 +18,7 @@ const Slider = () => {
       .then((data) => setSliders(data));
   }, []);
 
-  console.log(sliders);
+  // console.log(sliders);
 
   return (
     <Swiper
@@ -33,7 +33,7 @@ const Slider = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className=" md:h-[80vh] h-auto rounded-lg"
+      className=" md:h-[80vh] h-auto rounded-lg mt-0.5"
     >
       {sliders.map((slide, index) => (
         <SwiperSlide key={index}>
