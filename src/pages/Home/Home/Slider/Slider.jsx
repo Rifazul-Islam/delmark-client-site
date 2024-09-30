@@ -33,7 +33,7 @@ const Slider = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className=" md:h-[80vh] h-auto rounded-lg mt-0.5"
+      className=" md:h-[80vh] h-auto rounded-lg"
     >
       {sliders.map((slide, index) => (
         <SwiperSlide key={index}>

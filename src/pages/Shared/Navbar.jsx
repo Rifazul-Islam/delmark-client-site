@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const { userLogout, user } = useContext(AuthContext);
+
+  const [cart] = useCart();
 
   const handlerLogout = () => {
     userLogout()
@@ -32,30 +35,24 @@ const Navbar = () => {
   };
   const menuItems = (
     <>
-      <li>
-        <Link to="/"> Home</Link>
-      </li>
-      <li>
-        <Link to="/menu"> Menu</Link>
-      </li>
-      <li>
-        <Link to="/order/salad"> Order </Link>
-      </li>
-      <li>
-        <Link to="/secret"> Secret </Link>
-      </li>
-      <li>
-        <button className="btn btn-xs mt-2 text-lg">
-          <FaShoppingCart />
-          <div className="badge badge-secondary">+0</div>
-        </button>
-      </li>
+      <Link to="/"> Home</Link>
+
+      <Link to="/menu"> Menu</Link>
+
+      <Link to="/order/salad"> Order </Link>
+
+      <Link to="/secret"> Secret </Link>
+
+      <button className="btn btn-xs mt-1 text-lg">
+        <FaShoppingCart />
+        <div className="badge badge-secondary">+ {cart?.length}</div>
+      </button>
     </>
   );
 
   return (
-    <div className=" bg-base-100 border">
-      <div className="navbar max-w-6xl mx-auto">
+    <div className=" pb-[72px]">
+      <div className="navbar bg-green-950 mx-auto fixed z-20 text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -76,7 +73,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu  menu-sm dropdown-content bg-green-950 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {menuItems}
             </ul>
@@ -86,14 +83,16 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 ">{menuItems}</ul>
+          <ul className="menu menu-horizontal px-1 text-white text-lg space-x-4">
+            {menuItems}
+          </ul>
         </div>
         <div className="navbar-end">
           {user ? (
             <>
               <button
                 onClick={handlerLogout}
-                className="btn btn-md px-8  mt-1.5 bg-primary text-white hover:bg-accent"
+                className="btn btn-md px-8  mt-1.5 bg-second  hover:bg-accent"
               >
                 SignOut
               </button>

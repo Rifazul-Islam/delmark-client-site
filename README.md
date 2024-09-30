@@ -4,9 +4,10 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 # E-Comarch Project step by step
 
-- First time user vagitabe add to time must be login.
+- First step user vagitabe add to time must be login.
 - Second step user logged after current path replace.
-- Thrid time user some information with product some information sent.
+- Thrid step user some information with product some information sent.
+- Four step user spesic email method data all product get
 
 Currently, two official plugins are available:
 

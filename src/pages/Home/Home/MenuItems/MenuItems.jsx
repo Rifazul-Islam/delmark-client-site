@@ -6,7 +6,7 @@ const MenuItems = () => {
   const [menu] = useMenu();
 
   let popular = menu.filter((item) => item.category === "popular");
-  console.log("check the Popurlar Data", popular);
+  // console.log("check the Popurlar Data", popular);
 
   return (
     <div className="mb-16 bg-base-100">

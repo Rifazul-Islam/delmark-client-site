@@ -2,15 +2,18 @@ import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useCart from "../../../hooks/useCart";
 
 const OrderCard = ({ items }) => {
   const { name, image, recipe, _id, price } = items;
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [, refetch] = useCart();
 
-  const handlerAddToCart = (cart) => {
+  const handlerAddToCart = () => {
     if (user && user?.email) {
       const cartItem = {
         menuId: _id,
@@ -20,7 +23,7 @@ const OrderCard = ({ items }) => {
         price,
       };
 
-      axios.post("http://localhost:5000/carts", cartItem).then((res) => {
+      axiosSecure.post("/carts", cartItem).then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
@@ -30,6 +33,10 @@ const OrderCard = ({ items }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+
+          // tanStack Queary use Refetch
+
+          refetch();
         }
       });
     } else {
@@ -58,10 +65,7 @@ const OrderCard = ({ items }) => {
         <div className="p-4 text-center">
           <h3 className="text-black font-semibold text-2xl mt-1.5">{name}</h3>
           <p className="text-sm py-3 pb-5">{recipe}</p>
-          <div
-            onClick={() => handlerAddToCart(items)}
-            className="overflow-hidden"
-          >
+          <div onClick={handlerAddToCart} className="overflow-hidden">
             <button className="bg-[#E8E8E8] border-b-4 border-[#BB8506] hover:border-transparent shadow-lg text-[#BB8506] rounded-lg hover:bg-[#1F2937]  transition-all duration-300 px-[30px] py-3">
               Add To Cart
             </button>

@@ -137,13 +137,12 @@ const Login = () => {
               name="captcha"
               placeholder="write captcha"
               className="input input-bordered"
-              required
             />
           </div>
 
           <div className="form-control mt-6">
+            {/* // DoTo :  disabled={disabled} */}
             <input
-              disabled={disabled}
               className="btn text-md bg-black text-white hover:bg-gray-700"
               type="submit"
               value="Login"
