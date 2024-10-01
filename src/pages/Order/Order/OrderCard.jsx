@@ -60,7 +60,7 @@ const OrderCard = ({ items }) => {
       {/* 01 */}
       <div className="card  p-1.5 card-compact bg-base-100 shadow-xl">
         <figure>
-          <img className="w-full" src={image} alt="" />
+          <img className="w-full h-56 " src={image} alt="" />
         </figure>
         <div className="p-4 text-center">
           <h3 className="text-black font-semibold text-2xl mt-1.5">{name}</h3>

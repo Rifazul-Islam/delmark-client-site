@@ -20,7 +20,7 @@ const Testimonials = () => {
   // console.log(allReview);
 
   return (
-    <div className="my-20">
+    <div className="mt-20 ">
       <SelectTitle subTitle={"What Our Client Say"} title={"Testimonials"} />
 
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -51,6 +51,10 @@ const Testimonials = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="mt-16">
+        <img src="https://sunny-footwear.vercel.app/payment.webp" alt="" />
+      </div>
     </div>
   );
 };

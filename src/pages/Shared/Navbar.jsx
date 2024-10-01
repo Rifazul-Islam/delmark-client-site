@@ -1,12 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
+import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
+import Check from "./Check";
 
 const Navbar = () => {
   const { userLogout, user } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
 
   const [cart] = useCart();
 
@@ -44,16 +47,31 @@ const Navbar = () => {
       <Link to="/secret"> Secret </Link>
       {user?.email && <Link to="/dashboard"> Dashboard</Link>}
 
-      <button className="btn btn-xs mt-1 text-lg">
-        <FaShoppingCart />
-        <div className="badge badge-secondary">+ {cart?.length}</div>
+      <button className="relative">
+        <div onClick={() => setShow(!show)}>
+          <FaShoppingCart className="text-xl" />
+          <div className="badge absolute  badge-secondary w-4 h-4 -top-1.5 left-4  rounded-full">
+            {cart?.length}
+          </div>
+        </div>
+        {show && (
+          <div className="bg-base-100 pt-1.5 absolute top-11 shadow-lg left-28 w-96 border-2 min-h-screen">
+            <div className="flex px-2 justify-between">
+              <h2 className="font-bold font-poppins"> Shopping Show </h2>
+              <p onClick={() => setShow(!show)} className="text-accent">
+                X
+              </p>
+            </div>
+            <Check />
+          </div>
+        )}
       </button>
     </>
   );
 
   return (
-    <div className=" pb-[72px] ">
-      <div className="navbar bg-green-950  mx-auto fixed z-20 text-white">
+    <div className="pb-[72px] font-poppins  font-semibold text-primary">
+      <div className="navbar bg-base-100 shadow-2xl  mx-auto fixed z-20  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,7 +102,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-white text-lg space-x-4">
+          <ul className="menu menu-horizontal px-1 S text-[16px] space-x-4">
             {menuItems}
           </ul>
         </div>
@@ -93,14 +111,14 @@ const Navbar = () => {
             <>
               <button
                 onClick={handlerLogout}
-                className="btn btn-md px-8  mt-1.5 bg-second  hover:bg-accent"
+                className="btn btn-sm  px-8  mt-1.5 bg-primary text-white  hover:bg-accent"
               >
                 SignOut
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="btn btn-md px-8">
+              <Link to="/login" className="btn btn-sm px-8 ">
                 Login
               </Link>
             </>
