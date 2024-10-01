@@ -8,6 +8,7 @@ import OurMenu from "./OurMenu/OurMenu";
 import Testimonials from "./Testimonials/Testimonials";
 import Slider from "./Slider/Slider";
 import { Helmet } from "react-helmet-async";
+import Test from "./Test/Test";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <Recomendation />
       <OurMenu />
       <Testimonials />
+      <Test></Test>
     </div>
   );
 };
