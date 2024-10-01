@@ -7,6 +7,7 @@ export default {
       fontFamily: {
         poppins: "'Poppins', sans-serif",
         inter: "'Inter', sans-serif",
+        Dancing: " 'Dancing Script', 'cursive' ",
       },
       colors: {
         primary: "#2E7D32", // Green shade

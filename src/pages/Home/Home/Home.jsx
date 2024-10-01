@@ -1,5 +1,3 @@
-import React from "react";
-
 import Cegegori from "./Cegegori";
 import Planting from "./Planting";
 import MenuItems from "./MenuItems/MenuItems";
@@ -25,7 +23,7 @@ const Home = () => {
       <Recomendation />
       <OurMenu />
       <Testimonials />
-      <Test></Test>
+      {/* <Test></Test> */}
     </div>
   );
 };

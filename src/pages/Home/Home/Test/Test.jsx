@@ -9,11 +9,13 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 import "./Test.css";
+import { Rating } from "@smastrom/react-rating";
+import { ImQuotesRight } from "react-icons/im";
 const Test = () => {
   const [sliders, setSliders] = useState([]);
 
   useEffect(() => {
-    fetch("slides.json")
+    fetch("reviews.json")
       .then((res) => res.json())
       .then((data) => setSliders(data));
   }, []);
@@ -35,29 +37,41 @@ const Test = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination, Autoplay]}
-        className="mySwiper h-52 mb-10"
+        modules={[EffectCoverflow, Autoplay]}
+        className="mySwiper  my-16"
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
+        {sliders?.map((item) => (
+          <SwiperSlide key={item.id}>
+            <div class="bg-white p-6 rounded-lg  shadow-lg border">
+              <div class="flex items-center mb-4 justify-between">
+                <div className="flex justify-center items-center">
+                  <img
+                    src={item?.customerImage}
+                    alt="Michael Chen"
+                    class="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <h3 class="text-lg font-bold">{item.customerName}</h3>
+                    {/* reviews icons */}
+                    <div className="flex justify-center">
+                      <Rating
+                        style={{ maxWidth: 100 }}
+                        value={item.rating}
+                        readOnly
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Quats Icons */}
+                <div className="flex justify-center py-4 text-4xl">
+                  <ImQuotesRight />
+                </div>
+              </div>
+              <p class="text-gray-700 mb-4">{item.reviewText}</p>
+              <p class="text-sm text-gray-400">Reviewed on: {item.date}</p>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

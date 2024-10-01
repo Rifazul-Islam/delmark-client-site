@@ -1,32 +1,56 @@
 [
-    {
-        "_id": "643010e0f5a7e52ce1e8fa65",
-        "name": "Jane Doe",
-        "details": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-        "rating": 3
-    },
-    {
-        "_id": "643010f9f5a7e52ce1e8fa66",
-        "name": "John Doe",
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
-        "rating": 2
-    },
-    {
-        "_id": "6430110af5a7e52ce1e8fa67",
-        "name": "MJ Doe",
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
-        "rating": 5
-    },
-    {
-        "_id": "64301123f5a7e52ce1e8fa68",
-        "name": "Sarah Smith",
-        "details": "I found the product to be incredibly useful and easy to use. The interface is intuitive, and it has all the features I need. Highly recommend it!",
-        "rating": 4
-    },
-    {
-        "_id": "6430113af5a7e52ce1e8fa69",
-        "name": "Robert Johnson",
-        "details": "This is by far the best service I have ever used. The customer support is outstanding, and the product itself is top-notch. I couldn't be happier!",
-        "rating": 5
-    }
+  {
+    "id": "rev001",
+    "customerName": "Emily Johnson",
+    "rating": 5,
+    "date": "2023-09-15",
+    "reviewText": "I'm absolutely thrilled with the quality of vegetables I received! The organic carrots were incredibly sweet and crunchy. Will definitely order again!",
+    "productName": "Organic Carrots",
+    "customerImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
+  },
+  {
+    "id": "rev002",
+    "customerName": "Michael Chen",
+    "rating": 4,
+    "date": "2023-09-18",
+    "reviewText": "The fresh broccoli was excellent, arrived in perfect condition. Just wish there were more variety in the organic section.",
+    "productName": "Fresh Broccoli",
+    "customerImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80"
+  },
+  {
+    "id": "rev003",
+    "customerName": "Sophia Rodriguez",
+    "rating": 5,
+    "date": "2023-09-20",
+    "reviewText": "I'm impressed by the freshness of the baby spinach. It lasted much longer than store-bought and tasted amazing in my salads!",
+    "productName": "Baby Spinach",
+    "customerImage": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&w=100&h=100&q=80"
+  },
+  {
+    "id": "rev004",
+    "customerName": "David Thompson",
+    "rating": 3,
+    "date": "2023-09-22",
+    "reviewText": "The red bell peppers were good, but a couple were slightly bruised upon arrival. Hoping for better packaging next time.",
+    "productName": "Red Bell Peppers",
+    "customerImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
+  },
+  {
+    "id": "rev005",
+    "customerName": "Olivia Patel",
+    "rating": 5,
+    "date": "2023-09-25",
+    "reviewText": "The cherry tomatoes were bursting with flavor! So much better than what I usually find at the supermarket. Will be a repeat customer for sure!",
+    "productName": "Cherry Tomatoes",
+    "customerImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80"
+  },
+  {
+    "id": "rev006",
+    "customerName": "James Wilson",
+    "rating": 4,
+    "date": "2023-09-28",
+    "reviewText": "Great selection of vegetables overall. The cucumber was especially crisp and refreshing. Just a small suggestion: it would be nice to have some tips on storage for maximum freshness.",
+    "productName": "Cucumber",
+    "customerImage": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&h=100&q=80"
+  }
 ]
