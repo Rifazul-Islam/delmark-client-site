@@ -55,7 +55,7 @@ const Navbar = () => {
           </div>
         </div>
         {show && (
-          <div className="bg-base-100 pt-1.5 absolute top-11 shadow-lg left-28 w-96 border-2 min-h-screen">
+          <div className="bg-base-100 pt-1.5 absolute top-11 shadow-lg left-36 w-[350px] border-2 min-h-screen">
             <div className="flex px-2 justify-between">
               <h2 className="font-bold font-poppins"> Shopping Show </h2>
               <p onClick={() => setShow(!show)} className="text-accent">

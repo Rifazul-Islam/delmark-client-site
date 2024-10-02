@@ -6,7 +6,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCart from "../../../hooks/useCart";
 
 const OrderCard = ({ items }) => {
-  const { name, image, recipe, _id, price } = items;
+  const { name, image, recipe, _id, price, quantity } = items;
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
@@ -21,6 +21,7 @@ const OrderCard = ({ items }) => {
         name,
         image,
         price,
+        quantity,
       };
 
       axiosSecure.post("/carts", cartItem).then((res) => {
