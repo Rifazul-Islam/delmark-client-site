@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaAd,
   FaBook,
@@ -10,7 +9,6 @@ import {
   FaUser,
   FaUtensils,
 } from "react-icons/fa";
-import { FaS } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 

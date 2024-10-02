@@ -13,6 +13,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import useAxiosPublice from "../hooks/useAxiosPublice";
 
 export const AuthContext = createContext(null);
 
@@ -23,6 +24,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
+  const axiosPublice = useAxiosPublice();
 
   // user Create function
 
@@ -66,7 +68,19 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("check the current User", currentUser);
+      // console.log("check the current User", currentUser);
+      if (currentUser) {
+        const userInfo = { email: currentUser?.email };
+
+        axiosPublice.post("/jwt", userInfo).then((res) => {
+          if (res.data?.token) {
+            localStorage.setItem("access-token", res?.data?.token);
+          }
+        });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+
       setLoading(false);
     });
     return () => {
