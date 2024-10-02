@@ -9,11 +9,7 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/users", {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("access-token")}`,
-        },
-      });
+      const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
@@ -100,11 +96,11 @@ const AllUsers = () => {
           <tbody>
             {/* row 1 */}
             {users?.map((user, id) => (
-              <tr>
+              <tr key={user?._id}>
                 <th> {id + 1}</th>
                 <td> {user?.name}</td>
                 <td>{user?.email}</td>
-                <td> {user?.role ? <> {user?.role} </> : <p> user </p>}</td>
+                <td> {user?.role ? "Admin" : "User"}</td>
                 <td>
                   <button
                     onClick={() => handlerUpdateRole(user)}

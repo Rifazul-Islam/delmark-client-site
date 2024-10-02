@@ -44,7 +44,7 @@ const Navbar = () => {
 
       <Link to="/order/salad"> Order </Link>
 
-      <Link to="/secret"> Secret </Link>
+      <Link to="/secret"> Secret {user?.email} </Link>
       {user?.email && <Link to="/dashboard"> Dashboard</Link>}
 
       <button className="relative">

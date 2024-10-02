@@ -76,7 +76,10 @@ const Testimonials = () => {
                 <p class="text-gray-700 mb-4 font-Dancing text-semibold">
                   {item.reviewText}
                 </p>
-                <p class="text-sm text-gray-400">Reviewed on: {item.date}</p>
+                <p>{item.reviewText}</p>
+                <p class="text-sm text-gray-400 my-5">
+                  Reviewed on: {item.date}
+                </p>
               </div>
             </SwiperSlide>
           ))}
