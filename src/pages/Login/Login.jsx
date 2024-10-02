@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import { FaArrowRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -153,22 +154,8 @@ const Login = () => {
           </div>
         </form>
 
-        <div className="divider">OR Continue With </div>
-        <div className="grid gap-4 grid-cols-1 my-4 md:grid-cols-2 lg:grid-cols-2 px-3">
-          <div className="flex justify-center p-4 items-center border-[1px] border-gray-400  gap-2 shadow-lg cursor-pointer rounded-lg">
-            <p>
-              <FaGoogle className="text-2xl font-bold" />
-            </p>
-            <p> Sign Up With Google</p>
-          </div>
-
-          <div className="flex justify-center p-4 items-center cursor-pointer border-[1px] border-gray-400 gap-2 shadow-lg rounded-lg">
-            <p>
-              <FaGithub className="text-2xl font-bold" />
-            </p>
-            <p> Sign Up With Google</p>
-          </div>
-        </div>
+        {/* show Login System  */}
+        <SocialLogin />
 
         <p className="p-2 text-sm">
           New User

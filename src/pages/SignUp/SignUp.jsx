@@ -6,11 +6,14 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import { FaArrowRight, FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import useAxiosPublice from "../../hooks/useAxiosPublice";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { createUser, udateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublice = useAxiosPublice();
   const {
     register,
     handleSubmit,
@@ -19,25 +22,33 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
 
     createUser(data.email, data.password).then((result) => {
       const user = result.user;
 
       udateUserProfile(data.name, data.photo)
         .then(() => {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User Profile Update SuccessFully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          const users = {
+            name: data?.name,
+            email: data?.email,
+          };
+          axiosPublice.post("/users", users).then((res) => {
+            if (res.data) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Profile Update SuccessFully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
 
-          navigate("/");
+              navigate("/");
+            }
+          });
         })
         .catch((error) => console.log(error));
-      reset();
     });
   };
 
@@ -166,22 +177,8 @@ const SignUp = () => {
           </div>
         </form>
 
-        <div className="divider">OR Continue With </div>
-        <div className="grid gap-4 grid-cols-1 my-4 md:grid-cols-2 lg:grid-cols-2 px-3">
-          <div className="flex justify-center p-4 items-center border-[1px] border-gray-400  gap-2 shadow-lg cursor-pointer rounded-lg">
-            <p>
-              <FaGoogle className="text-2xl font-bold" />
-            </p>
-            <p> Sign Up With Google</p>
-          </div>
-
-          <div className="flex justify-center p-4 items-center cursor-pointer border-[1px] border-gray-400 gap-2 shadow-lg rounded-lg">
-            <p>
-              <FaGithub className="text-2xl font-bold" />
-            </p>
-            <p> Sign Up With Google</p>
-          </div>
-        </div>
+        {/* show SignUP System  */}
+        <SocialLogin />
 
         <p className="p-2 mt-4 text-sm">
           Have an Account

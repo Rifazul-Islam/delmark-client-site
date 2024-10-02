@@ -1,5 +1,10 @@
 import { createContext, useEffect, useState } from "react";
-import { getAuth, updateProfile } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
 import { app } from "../firebase/firebase-confice";
 
 import {
@@ -16,6 +21,8 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const googleProvider = new GoogleAuthProvider();
 
   // user Create function
 
@@ -38,6 +45,13 @@ const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // user Google Login function
+
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
   };
 
   // user Log out function
@@ -65,6 +79,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUser,
     loginUser,
+    googleLogin,
     userLogout,
     udateUserProfile,
   };
