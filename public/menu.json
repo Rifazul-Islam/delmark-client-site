@@ -1,6 +1,5 @@
 [
   {
-    "_id": "642c155b2c4774f05c36eeaa",
     "name": "Fresh Broccoli",
     "recipe": "Crisp, nutritious broccoli florets. Perfect for steaming or stir-frying.",
     "image": "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?auto=format&fit=crop&w=300&q=80",
@@ -9,7 +8,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeb9",
     "name": "Organic Carrots",
     "recipe": "Sweet and crunchy organic carrots. Great for snacking or cooking.",
     "image": "https://images.unsplash.com/photo-1447175008436-054170c2e979?auto=format&fit=crop&w=300&q=80",
@@ -18,7 +16,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee7c",
     "name": "Red Bell Peppers",
     "recipe": "Vibrant and flavorful red bell peppers. Ideal for salads or roasting.",
     "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=300&q=80",
@@ -27,7 +24,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee88",
     "name": "Baby Spinach",
     "recipe": "Tender baby spinach leaves. Perfect for salads or sautéing.",
     "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=300&q=80",
@@ -36,7 +32,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee7a",
     "name": "Cherry Tomatoes",
     "recipe": "Sweet and juicy cherry tomatoes. Great for snacking or adding to salads.",
     "image": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=300&q=80",
@@ -45,7 +40,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "name": "Cucumber",
     "recipe": "Cool and refreshing cucumbers. Perfect for salads or pickling.",
     "image": "https://images.unsplash.com/photo-1604977042946-1eecc30f269e?auto=format&fit=crop&w=300&q=80",
@@ -54,7 +48,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee94",
     "name": "Zucchini",
     "recipe": "Versatile zucchini. Great for grilling, sautéing, or baking.",
     "image": "https://images.unsplash.com/photo-1596450514735-111a2fe02935?auto=format&fit=crop&w=300&q=80",
@@ -63,7 +56,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee9e",
     "name": "Green Beans",
     "recipe": "Crisp and tender green beans. Excellent for steaming or stir-frying.",
     "image": "https://images.unsplash.com/photo-1567375698348-5d9d5ae99de0?auto=format&fit=crop&w=300&q=80",
@@ -72,7 +64,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eea6",
     "name": "Romaine Lettuce",
     "recipe": "Crisp and nutritious romaine lettuce. Perfect for salads or wraps.",
     "image": "https://images.unsplash.com/photo-1622205313162-be1d5712a43f?auto=format&fit=crop&w=300&q=80",
@@ -81,7 +72,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeaf",
     "name": "Cauliflower",
     "recipe": "Versatile cauliflower. Great for roasting, mashing, or ricing.",
     "image": "https://images.unsplash.com/photo-1613743983303-b3e89f8a2b80?auto=format&fit=crop&w=300&q=80",
@@ -90,7 +80,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee89",
     "name": "Brussels Sprouts",
     "recipe": "Nutrient-rich Brussels sprouts. Delicious when roasted or sautéed.",
     "image": "https://images.unsplash.com/photo-1438118907704-7718ee9a191a?auto=format&fit=crop&w=300&q=80",
@@ -99,7 +88,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee8a",
     "name": "Asparagus",
     "recipe": "Tender asparagus spears. Excellent grilled, roasted, or steamed.",
     "image": "https://images.unsplash.com/photo-1515471209610-425df8cbc9b6?auto=format&fit=crop&w=300&q=80",
@@ -108,7 +96,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee96",
     "name": "Sweet Potato",
     "recipe": "Nutritious and versatile sweet potatoes. Great for baking or mashing.",
     "image": "https://images.unsplash.com/photo-1596097635121-14b63b7a0c21?auto=format&fit=crop&w=300&q=80",
@@ -117,7 +104,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee81",
     "name": "Red Onions",
     "recipe": "Flavorful red onions. Perfect for salads, grilling, or caramelizing.",
     "image": "https://images.unsplash.com/photo-1608197492882-97eb81e04e05?auto=format&fit=crop&w=300&q=80",
@@ -126,7 +112,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee84",
     "name": "Eggplant",
     "recipe": "Versatile eggplant. Great for grilling, roasting, or in Mediterranean dishes.",
     "image": "https://images.unsplash.com/photo-1528826007177-f38517ce9a8a?auto=format&fit=crop&w=300&q=80",
@@ -135,7 +120,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eea4",
     "name": "Kale",
     "recipe": "Nutrient-dense kale. Perfect for salads, smoothies, or sautéing.",
     "image": "https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?auto=format&fit=crop&w=300&q=80",
@@ -144,7 +128,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eea5",
     "name": "Butternut Squash",
     "recipe": "Sweet and nutty butternut squash. Ideal for soups or roasting.",
     "image": "https://images.unsplash.com/photo-1570586437263-ab629fccc818?auto=format&fit=crop&w=300&q=80",
@@ -153,7 +136,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee87",
     "name": "Radishes",
     "recipe": "Crunchy and peppery radishes. Great for salads or as a healthy snack.",
     "image": "https://images.unsplash.com/photo-1587411768515-eeac0647deed?auto=format&fit=crop&w=300&q=80",
@@ -162,7 +144,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee83",
     "name": "Artichokes",
     "recipe": "Tender artichokes. Delicious steamed, grilled, or in dips.",
     "image": "https://images.unsplash.com/photo-1551465222-21f38590e8c1?auto=format&fit=crop&w=300&q=80",
@@ -171,7 +152,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee7f",
     "name": "Green Peas",
     "recipe": "Sweet and tender green peas. Great for side dishes or adding to salads.",
     "image": "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=300&q=80",
@@ -180,7 +160,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eea8",
     "name": "Celery",
     "recipe": "Crunchy celery stalks. Perfect for snacking or adding to soups.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=300&q=80",
@@ -189,7 +168,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeba",
     "name": "Beets",
     "recipe": "Sweet and earthy beets. Great for roasting or in salads.",
     "image": "https://images.unsplash.com/photo-1533231040102-5db9a91a939f?auto=format&fit=crop&w=300&q=80",
@@ -198,7 +176,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee80",
     "name": "Garlic",
     "recipe": "Flavorful garlic bulbs. Essential for various cuisines and dishes.",
     "image": "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=300&q=80",
@@ -207,7 +184,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee90",
     "name": "Leeks",
     "recipe": "Mild and versatile leeks. Great for soups, stews, or sautéing.",
     "image": "https://images.unsplash.com/photo-1615395630879-c2a7a7c5252e?auto=format&fit=crop&w=300&q=80",
@@ -216,7 +192,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeb0",
     "name": "Parsnips",
     "recipe": "Sweet and nutty parsnips. Excellent roasted or in soups.",
     "image": "https://images.unsplash.com/photo-1614442042855-e17d53875286?auto=format&fit=crop&w=300&q=80",
@@ -225,7 +200,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee8d",
     "name": "Turnips",
     "recipe": "Mild and slightly sweet turnips. Great mashed or roasted.",
     "image": "https://images.unsplash.com/photo-1587334207407-deb137a955ba?auto=format&fit=crop&w=300&q=80",
@@ -234,7 +208,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee8e",
     "name": "Okra",
     "recipe": "Tender okra pods. Perfect for Southern and Indian cuisines.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=300&q=80",
@@ -243,7 +216,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eea7",
     "name": "Bok Choy",
     "recipe": "Crisp and tender bok choy. Excellent for stir-fries or steaming.",
     "image": "https://images.unsplash.com/photo-1591089101324-2280d9260000?auto=format&fit=crop&w=300&q=80",
@@ -252,7 +224,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee99",
     "name": "Swiss Chard",
     "recipe": "Colorful and nutritious Swiss chard. Great sautéed or in soups.",
     "image": "https://images.unsplash.com/photo-1591089101324-2280d9260000?auto=format&fit=crop&w=300&q=80",
@@ -261,7 +232,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeb3",
     "name": "Fennel",
     "recipe": "Aromatic fennel bulbs. Delicious raw in salads or roasted.",
     "image": "https://images.unspl ash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=300&q=80",
@@ -270,7 +240,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeb5",
     "name": "Kohlrabi",
     "recipe": "Crunchy and mild kohlrabi. Great raw, roasted, or in slaws.",
     "image": "https://images.unsplash.com/photo-1587334207407-deb137a955ba?auto=format&fit=crop&w=300&q=80",
@@ -279,7 +248,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeb6",
     "name": "Watercress",
     "recipe": "Peppery and nutrient-rich watercress. Perfect for salads or garnishes.",
     "image": "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=300&q=80",
@@ -288,7 +256,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eeb8",
     "name": "Endive",
     "recipe": "Crisp and slightly bitter endive. Great for salads or as appetizer boats.",
     "image": "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=300&q=80",
@@ -297,7 +264,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee7e",
     "name": "Radicchio",
     "recipe": "Colorful and slightly bitter radicchio. Excellent in salads or grilled.",
     "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=300&q=80",
@@ -306,7 +272,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee8b",
     "name": "Arugula",
     "recipe": "Peppery and tender arugula leaves. Perfect for salads or as a pizza topping.",
     "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=300&q=80",
@@ -315,7 +280,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee8f",
     "name": "Collard Greens",
     "recipe": "Nutritious collard greens. Great for Southern-style cooking or wraps.",
     "image": "https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?auto=format&fit=crop&w=300&q=80",
@@ -324,7 +288,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee91",
     "name": "Mustard Greens",
     "recipe": "Peppery mustard greens. Excellent sautéed or in soups.",
     "image": "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=300&q=80",
@@ -333,7 +296,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36ee97",
     "name": "Daikon Radish",
     "recipe": "Mild and crunchy daikon radish. Great for salads or pickling.",
     "image": "https://images.unsplash.com/photo-1587411768515-eeac0647deed?auto=format&fit=crop&w=300&q=80",
@@ -342,7 +304,6 @@
     "quantity": 0
   },
   {
-    "_id": "642c155b2c4774f05c36eea0",
     "name": "Jicama",
     "recipe": "Crunchy and slightly sweet jicama. Perfect for snacking or in salads.",
     "image": "https://images.unsplash.com/photo-1591089101324-2280d9260000?auto=format&fit=crop&w=300&q=80",

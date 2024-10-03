@@ -83,8 +83,8 @@ const AllUsers = () => {
       <div className="overflow-x-auto mt-10">
         <table className="table table-zebra">
           {/* head */}
-          <thead className="bg-primary text-white ">
-            <tr className="text-[16px]">
+          <thead className="bg-primary text-white">
+            <tr className="text-[18px] ">
               <th></th>
               <th>Name</th>
               <th> Email</th>

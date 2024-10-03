@@ -13,11 +13,15 @@ import Cart from "../pages/Dashboard/Cart/Cart";
 import AllUsers from "../pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
 import AddItems from "../pages/Dashboard/AdminDashboard/AddItems/AddItems";
 import AdminPrivateRoute from "./AdminPrivateRoute";
+import ManageItems from "../pages/Dashboard/AdminDashboard/ManageItems/ManageItems";
+import UpdateItems from "../pages/Dashboard/AdminDashboard/UpdateItems/UpdateItems";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -59,9 +63,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <PrivateRoute>
-        <Dashboard></Dashboard>
+        <Dashboard></Dashboard>,
       </PrivateRoute>
     ),
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/dashboard/cart",
@@ -69,7 +74,7 @@ const router = createBrowserRouter([
       },
       // Admin Only Access
       {
-        path: "/dashboard/allusers",
+        path: "allusers",
         element: (
           <AdminPrivateRoute>
             <AllUsers />
@@ -77,12 +82,30 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/addItems",
+        path: "addItems",
         element: (
           <AdminPrivateRoute>
             <AddItems />
           </AdminPrivateRoute>
         ),
+      },
+      {
+        path: "manageItems",
+        element: (
+          <AdminPrivateRoute>
+            <ManageItems />
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "updateItems/:id",
+        element: (
+          <AdminPrivateRoute>
+            <UpdateItems />
+          </AdminPrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/menu/${params.id}`),
       },
     ],
   },

@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
 import SelectTitle from "../../../../components/SelectTitle";
 import useAxiosPublice from "../../../../hooks/useAxiosPublice";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_Hosting_api = `https://api.imgbb.com/1/upload?key=${image_Hosting_key}`;
 const AddItems = () => {
   const axiosPublice = useAxiosPublice();
+  const axiosSecure = useAxiosSecure();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     const imageFile = { image: data.image[0] };
@@ -15,17 +18,32 @@ const AddItems = () => {
       headers: { "content-type": "multipart/form-data" },
     });
 
-    console.log(res.data?.data?.display_url);
+    // console.log(res.data?.data?.display_url);
 
-    const productInfo = {
-      name: data?.name,
-      recipe: data.description,
-      price: data?.price,
-      category: data?.category,
-      image: res.data?.data?.display_url,
-    };
+    if (res.data.success) {
+      const productInfo = {
+        name: data?.name,
+        recipe: data.description,
+        price: parseFloat(data?.price),
+        category: data?.category,
+        image: res.data?.data?.display_url,
+        quantity: 0,
+      };
+      //   console.log(productInfo);
 
-    console.log(productInfo);
+      const menuRes = await axiosSecure.post("/menu", productInfo);
+      if (menuRes?.data?.insertedId) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `New Product Create ${data?.name}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
+
     // reset();
   };
   return (

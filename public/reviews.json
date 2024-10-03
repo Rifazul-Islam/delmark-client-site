@@ -1,6 +1,5 @@
 [
   {
-    "id": "rev001",
     "customerName": "Emily Johnson",
     "rating": 5,
     "date": "2023-09-15",
@@ -9,7 +8,6 @@
     "customerImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
-    "id": "rev002",
     "customerName": "Michael Chen",
     "rating": 4,
     "date": "2023-09-18",
@@ -18,7 +16,6 @@
     "customerImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
-    "id": "rev003",
     "customerName": "Sophia Rodriguez",
     "rating": 5,
     "date": "2023-09-20",
@@ -27,7 +24,6 @@
     "customerImage": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
-    "id": "rev004",
     "customerName": "David Thompson",
     "rating": 3,
     "date": "2023-09-22",
@@ -36,7 +32,6 @@
     "customerImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
-    "id": "rev005",
     "customerName": "Olivia Patel",
     "rating": 5,
     "date": "2023-09-25",
@@ -45,7 +40,6 @@
     "customerImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
-    "id": "rev006",
     "customerName": "James Wilson",
     "rating": 4,
     "date": "2023-09-28",
