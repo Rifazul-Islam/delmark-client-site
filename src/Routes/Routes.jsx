@@ -11,6 +11,8 @@ import Secret from "../pages/Shared/Secret";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
 import AllUsers from "../pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
+import AddItems from "../pages/Dashboard/AdminDashboard/AddItems/AddItems";
+import AdminPrivateRoute from "./AdminPrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -65,9 +67,22 @@ const router = createBrowserRouter([
         path: "/dashboard/cart",
         element: <Cart></Cart>,
       },
+      // Admin Only Access
       {
         path: "/dashboard/allusers",
-        element: <AllUsers />,
+        element: (
+          <AdminPrivateRoute>
+            <AllUsers />
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addItems",
+        element: (
+          <AdminPrivateRoute>
+            <AddItems />
+          </AdminPrivateRoute>
+        ),
       },
     ],
   },

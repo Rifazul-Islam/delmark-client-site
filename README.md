@@ -2,16 +2,16 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# E-Comarch Project step by step
+# E-commerce Project step by step
 
 - First step user vagitabe add to time must be login.
 - Second step user logged after current path replace.
 - Thrid step user some information with product some information sent.
 - Four step user spesic email method data all product get.
 - AxiosSure hook use the and use Interceptors request and respone funtion create.
-- AxiosSure inside We server site send headers and save token .
+- AxiosSure inside We server site send headers and save token.
 
-# E-Comarch Server step by step
+# E-commerce Server step by step
 
 - Server Site Token for Post Method created.
 - Token post create before terminal panel from some cmd have.
@@ -19,6 +19,14 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - install jwt and documentation see, jwt.sign method use for post method .
 - Some api Secure to do middle ware function create,
 - Admin make sure one functon create .
+
+# How To image Host in Imagebb Step by step?
+
+- First step Imagebb api key, and client inside .env.local,
+- second step image file current access.
+- axios Public post method use.
+- post inside heardes name object inside 'conten-type': 'mulpart/form.data'.
+- res.data.data.imageURL : access image link send to Mongo DB
 
 Currently, two official plugins are available:
 

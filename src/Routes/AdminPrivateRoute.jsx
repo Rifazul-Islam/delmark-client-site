@@ -10,13 +10,13 @@ const AdminPrivateRoute = ({ children }) => {
   if (loading || adminLoading) {
     return (
       <img
-        className="animate-spin"
+        className="animate-spin flex justify-center items-center w-52"
         src="https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg"
         alt=""
       />
     );
   }
-  if (user || isAdmin) {
+  if (user && isAdmin) {
     return children;
   }
 

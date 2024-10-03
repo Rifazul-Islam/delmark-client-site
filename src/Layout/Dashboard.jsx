@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin();
 
   return (
-    <div className="flex lg:flex-row flex-col my-3 lg:px-20">
+    <div className="flex lg:flex-row flex-col mt-3 mb-2 lg:px-20">
       {/* dashboard site bar */}
       <div className="lg:w-64  min-h-screen bg-base-100 shadow-2xl rounded-lg p-4 border">
         {isAdmin ? (
