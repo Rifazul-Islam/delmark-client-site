@@ -19,6 +19,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - install jwt and documentation see, jwt.sign method use for post method .
 - Some api Secure to do middle ware function create,
 - Admin make sure one functon create .
+- Specific id Dara Data Load and, patch method use product admin new project add,
+- Admin this product update and use Patch Mathod ,
 
 # How To image Host in Imagebb Step by step?
 
