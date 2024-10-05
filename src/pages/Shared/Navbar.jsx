@@ -44,7 +44,7 @@ const Navbar = () => {
 
       <Link to="/order/salad"> Order </Link>
 
-      <Link to="/secret"> Secret {user?.email} </Link>
+      <Link to="/secret"> Secret </Link>
       {user?.email && <Link to="/dashboard"> Dashboard</Link>}
 
       <button className="relative">
@@ -56,7 +56,7 @@ const Navbar = () => {
         </div>
         {show && (
           <div className="bg-base-100 pt-1.5 absolute top-11 shadow-lg left-36 w-[350px] border-2 min-h-screen">
-            <div className="flex px-2 justify-between">
+            <div className="flex px-2 justify-between ">
               <h2 className="font-bold font-poppins"> Shopping Show </h2>
               <p onClick={() => setShow(!show)} className="text-accent">
                 X
@@ -110,6 +110,7 @@ const Navbar = () => {
           {user ? (
             <>
               <button
+                title={user?.email}
                 onClick={handlerLogout}
                 className="btn btn-sm  px-8  mt-1.5 bg-primary text-white  hover:bg-accent"
               >

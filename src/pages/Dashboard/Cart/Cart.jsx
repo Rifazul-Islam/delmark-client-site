@@ -3,6 +3,7 @@ import useCart from "../../../hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -40,7 +41,17 @@ const Cart = () => {
       <div className="flex justify-between ">
         <h2 className="text-2xl font-semibold">Total Items : {cart.length}</h2>
         <h2 className="text-2xl font-semibold"> Total Price : {totalPrice} </h2>
-        <button className="text-lg btn bg-accent px-8 text-white"> Pay</button>
+        {cart?.length ? (
+          <Link to="/dashboard/payment">
+            <button className="text-lg btn bg-accent px-8 text-white">
+              Pay
+            </button>
+          </Link>
+        ) : (
+          <button disabled className="text-lg btn bg-accent px-8 text-white">
+            Pay
+          </button>
+        )}
       </div>
 
       {/* Table Use  */}

@@ -89,7 +89,7 @@ const Check = () => {
   }, [cart, currentQ]); // Dependency array includes cart and currentQ
 
   return (
-    <div className="relative">
+    <div className="relative overscroll-y-contain ">
       <table className="text-sm  mt-4 mx-4">
         <thead>
           <tr className="border-b space-x-3 ">
@@ -156,7 +156,7 @@ const Check = () => {
               <td className="py-4">
                 <button
                   onClick={() => handlerDelete(item._id)}
-                  className="text-red-500 focus:outline-none focus:text-red-600"
+                  className="text-red-500 btn  focus:outline-none hover:text-red-800 focus:text-red-600"
                 >
                   <FiTrash2 />
                 </button>

@@ -16,6 +16,8 @@ import AdminPrivateRoute from "./AdminPrivateRoute";
 import ManageItems from "../pages/Dashboard/AdminDashboard/ManageItems/ManageItems";
 import UpdateItems from "../pages/Dashboard/AdminDashboard/UpdateItems/UpdateItems";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -69,10 +71,19 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/dashboard/cart",
+        path: "cart",
         element: <Cart></Cart>,
       },
+      {
+        path: "payment",
+        element: <Payment />,
+      },
       // Admin Only Access
+
+      {
+        path: "adminHome",
+        element: <AdminDashboard />,
+      },
       {
         path: "allusers",
         element: (
