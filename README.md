@@ -35,6 +35,11 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - Install Stripe and Stripe react.js.
 - Payment and CheckOutForm Page Created.
 - Go to Stripe github example inside hook, and All Flow.
+- Sever Side first install Package .
+- Post Method create and documention flow.
+- Server site Screte Key used.
+- Client side Confirm Payment Intern Create Method.
+- Some User user Information and useEffect all woking payment confirm
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

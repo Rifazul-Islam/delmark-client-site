@@ -1,9 +1,27 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useCart from "../../../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
 
 const CheckOutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const [error, setError] = useState("");
+  const axiosSecure = useAxiosSecure();
+  const [cart] = useCart();
+  const totalPrice = cart.reduce((pre, current) => pre + current.price, 0);
+  const [clientSecret, setClientSecret] = useState("");
+  const { user } = useAuth();
+  const [transectionId, setTransectionId] = useState("");
+  useEffect(() => {
+    const res = axiosSecure
+      .post("/create-payment-intern", { price: totalPrice })
+      .then((res) => {
+        console.log(res?.data?.clientSecret);
+        setClientSecret(res?.data?.clientSecret);
+      });
+  }, [axiosSecure, totalPrice, setClientSecret]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,8 +42,32 @@ const CheckOutForm = () => {
     });
     if (error) {
       console.log("Payment Error ", error);
+      setError(error.message);
     } else {
       console.log("get Payment Method ", paymentMethod);
+      setError(" ");
+    }
+
+    // Confirm Payment Method
+
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            email: user?.email || "anonymous",
+            name: user?.displayName || "anonymous",
+          },
+        },
+      });
+
+    if (confirmError) {
+      console.log("Confirm Error ");
+    } else {
+      console.log("Payment Intern", paymentIntent);
+      if (paymentIntent?.status === "succeeded") {
+        setTransectionId(paymentIntent.id);
+      }
     }
   };
 
@@ -48,12 +90,17 @@ const CheckOutForm = () => {
         }}
       />
       <button
-        className=" btn btn-sm text-white btn-primary"
+        className="btn btn-sm mt-4 text-white btn-primary"
         type="submit"
-        disabled={!stripe}
+        disabled={!stripe || !clientSecret}
       >
         Pay
       </button>
+
+      <p className="text-red-700"> {error}</p>
+      {transectionId && (
+        <p className="text-green-700"> Trangejtion Id {transectionId} </p>
+      )}
     </form>
   );
 };
