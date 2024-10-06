@@ -6,11 +6,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
 import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
 import Check from "./Check";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   const { userLogout, user } = useContext(AuthContext);
   const [show, setShow] = useState(false);
-
+  const [isAdmin] = useAdmin();
   const [cart] = useCart();
 
   const handlerLogout = () => {
@@ -45,7 +46,10 @@ const Navbar = () => {
       <Link to="/order/salad"> Order </Link>
 
       <Link to="/secret"> Secret </Link>
-      {user?.email && <Link to="/dashboard"> Dashboard</Link>}
+
+      {user && isAdmin && <Link to="/dashboard/adminHome"> Dashboard</Link>}
+
+      {user && !isAdmin && <Link to="/dashboard/userHome"> Dashboard</Link>}
 
       <button className="relative">
         <div onClick={() => setShow(!show)}>

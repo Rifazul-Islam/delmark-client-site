@@ -4,6 +4,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { IoSettings } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import Chart from "../../../components/Chart/Chart";
+import useAuth from "../../../hooks/useAuth";
 
 const summaryCards = [
   { label: "Total Users", value: "1,234", icon: "FaUsers" },
@@ -13,6 +14,7 @@ const summaryCards = [
 ];
 
 const AdminDashboard = () => {
+  const { user } = useAuth();
   return (
     <div>
       <div className="flex justify-between items-center pb-10">
@@ -22,7 +24,9 @@ const AdminDashboard = () => {
           transition={{ duration: 0.5 }}
           className="text-3xl font-bold text-gray-800"
         >
-          <h2> Welcome Back, Admin </h2>
+          <h2>
+            Hi, Welcome Admin {user?.displayName ? user?.displayName : "back"}
+          </h2>
         </motion.div>
 
         <div className="flex text-2xl font-bold pr-4 gap-3 items-center">

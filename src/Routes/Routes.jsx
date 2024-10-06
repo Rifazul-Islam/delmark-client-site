@@ -18,6 +18,8 @@ import UpdateItems from "../pages/Dashboard/AdminDashboard/UpdateItems/UpdateIte
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import UserDashboard from "../pages/Dashboard/UserDashboard/UserDashboard";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "userHome",
+        element: <UserDashboard></UserDashboard>,
+      },
+      {
         path: "cart",
         element: <Cart></Cart>,
       },
@@ -78,11 +84,20 @@ const router = createBrowserRouter([
         path: "payment",
         element: <Payment />,
       },
+
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
+      },
       // Admin Only Access
 
       {
         path: "adminHome",
-        element: <AdminDashboard />,
+        element: (
+          <AdminPrivateRoute>
+            <AdminDashboard />
+          </AdminPrivateRoute>
+        ),
       },
       {
         path: "allusers",
