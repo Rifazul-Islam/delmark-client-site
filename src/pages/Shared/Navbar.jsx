@@ -8,6 +8,7 @@ import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
 import Check from "./Check";
 import useAdmin from "../../hooks/useAdmin";
 import { CgProfile } from "react-icons/cg";
+import { div } from "framer-motion/client";
 
 const Navbar = () => {
   const { userLogout, user } = useContext(AuthContext);
@@ -49,25 +50,28 @@ const Navbar = () => {
 
       <Link to="/secret"> Secret </Link>
 
-      <button className="relative">
-        <div onClick={() => setShow(!show)}>
+      {/* <div className="relative">
+        <div className="cursor-pointer" onClick={() => setShow(!show)}>
           <FaShoppingCart className="text-xl" />
           <div className="badge absolute  badge-secondary w-4 h-4 -top-1.5 left-4  rounded-full">
             {cart?.length}
           </div>
         </div>
         {show && (
-          <div className="bg-base-100 pt-1.5 absolute top-11 shadow-lg left-36 w-[350px] border-2 min-h-screen">
-            <div className="flex px-2 justify-between ">
-              <h2 className="font-bold font-poppins"> Shopping Show </h2>
-              <p onClick={() => setShow(!show)} className="text-accent">
-                X
-              </p>
-            </div>
-            <Check />
+          <div>
+            <h4> Hello </h4>
           </div>
+          // <div className="bg-base-100 pt-1.5 absolute top-11 shadow-lg left-36 w-[350px] border-2 min-h-screen">
+          //   <div className="flex px-2 justify-between ">
+          //     <h2 className="font-bold font-poppins"> Shopping Show </h2>
+          //     <p onClick={() => setShow(!show)} className="text-accent">
+          //       X
+          //     </p>
+          //   </div>
+          //   <Check />
+          // </div>
         )}
-      </button>
+      </div> */}
     </>
   );
 

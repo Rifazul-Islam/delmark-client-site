@@ -89,7 +89,7 @@ const Check = () => {
   }, [cart, currentQ]); // Dependency array includes cart and currentQ
 
   return (
-    <div className="relative overscroll-y-contain ">
+    <div className="relative overscroll-y-contain">
       <table className="text-sm  mt-4 mx-4">
         <thead>
           <tr className="border-b space-x-3 ">

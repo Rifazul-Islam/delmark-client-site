@@ -7,10 +7,10 @@ import {
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import Swal from "sweetalert2";
 import { FaArrowRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -36,23 +36,24 @@ const Login = () => {
     loginUser(email, password).then((result) => {
       const user = result.user;
 
-      Swal.fire({
-        title: "User Login Successfully",
-        showClass: {
-          popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `,
-        },
-        hideClass: {
-          popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `,
-        },
-      });
+      toast.success("User Login Success");
+      // Swal.fire({
+      //   title: "User Login Successfully",
+      //   showClass: {
+      //     popup: `
+      //       animate__animated
+      //       animate__fadeInUp
+      //       animate__faster
+      //     `,
+      //   },
+      //   hideClass: {
+      //     popup: `
+      //       animate__animated
+      //       animate__fadeOutDown
+      //       animate__faster
+      //     `,
+      //   },
+      // });
 
       navigate(from, { replace: true });
     });

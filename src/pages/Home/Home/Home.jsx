@@ -17,6 +17,7 @@ const Home = () => {
       </Helmet>
 
       <Slider />
+
       {/* <Cegegori /> */}
       <MenuItems></MenuItems>
       <Planting></Planting>
