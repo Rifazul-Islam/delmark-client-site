@@ -7,12 +7,14 @@ import useCart from "../../hooks/useCart";
 import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
 import Check from "./Check";
 import useAdmin from "../../hooks/useAdmin";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   const { userLogout, user } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [isAdmin] = useAdmin();
   const [cart] = useCart();
+  const [open, setOpen] = useState(false);
 
   const handlerLogout = () => {
     userLogout()
@@ -46,10 +48,6 @@ const Navbar = () => {
       <Link to="/order/salad"> Order </Link>
 
       <Link to="/secret"> Secret </Link>
-
-      {user && isAdmin && <Link to="/dashboard/adminHome"> Dashboard</Link>}
-
-      {user && !isAdmin && <Link to="/dashboard/userHome"> Dashboard</Link>}
 
       <button className="relative">
         <div onClick={() => setShow(!show)}>
@@ -113,18 +111,49 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <button
+              <div
+                onClick={() => setOpen(!open)}
                 title={user?.email}
-                onClick={handlerLogout}
-                className="btn btn-sm  px-8  mt-1.5 bg-primary text-white  hover:bg-accent"
+                className="relative mr-8 cursor-pointer"
               >
-                SignOut
-              </button>
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+
+                {open ? (
+                  <>
+                    <div className="bg-base-100 border-[1px] border-gray-300 flex flex-col justify-center space-y-1.5  text-sm  p-1.5 w-40  absolute top-12 right-0 shadow-2xl -mr-9">
+                      <button className="bg-gray-200  hover:bg-gray-300 rounded-lg py-1.5">
+                        {user && isAdmin && (
+                          <Link to="/dashboard/adminHome"> Dashboard</Link>
+                        )}
+                        {user && !isAdmin && (
+                          <Link to="/dashboard/userHome"> Dashboard</Link>
+                        )}
+                      </button>
+
+                      <button
+                        onClick={handlerLogout}
+                        className="bg-gray-200  hover:bg-gray-300 rounded-lg py-1.5"
+                      >
+                        Sigin Out
+                      </button>
+                      <button className="bg-gray-200  hover:bg-gray-300 rounded-lg py-1.5">
+                        Setting
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  " "
+                )}
+              </div>
             </>
           ) : (
             <>
-              <Link to="/login" className="btn btn-sm px-8 ">
-                Login
+              <Link to="/login" className=" px-8 text-3xl ">
+                <CgProfile />
               </Link>
             </>
           )}

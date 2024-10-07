@@ -7,6 +7,7 @@ import Testimonials from "./Testimonials/Testimonials";
 import Slider from "./Slider/Slider";
 import { Helmet } from "react-helmet-async";
 import Test from "./Test/Test";
+import Delivery from "./Delivery/Delivery";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
 
       <Recomendation />
       <OurMenu />
+      <Delivery />
       <Testimonials />
       {/* <Test></Test> */}
     </div>
