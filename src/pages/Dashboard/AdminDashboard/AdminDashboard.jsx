@@ -5,16 +5,57 @@ import { IoSettings } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import Chart from "../../../components/Chart/Chart";
 import useAuth from "../../../hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
+import SecondChat from "../../../components/Chart/SecondChat";
+const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 
-const summaryCards = [
-  { label: "Total Users", value: "1,234", icon: "FaUsers" },
-  { label: "Total Orders", value: "456" },
-  { label: "Revenue", value: "$12,345" },
-  { label: "Active Users", value: "789" },
-];
+const getPath = (x, y, width, height) => {
+  return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
+    y + height / 3
+  }
+  ${x + width / 2}, ${y}
+  C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${
+    x + width
+  }, ${y + height}
+  Z`;
+};
+
+const TriangleBar = (props) => {
+  const { fill, x, y, width, height } = props;
+
+  return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+};
 
 const AdminDashboard = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  const { data: stats = {} } = useQuery({
+    queryKey: ["admin-stats"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/admin-stats");
+      return res.data;
+    },
+  });
+
+  // Chats Data
+
+  const { data: chatData = [] } = useQuery({
+    queryKey: ["orders-stats"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/orders-stats");
+      return res.data;
+    },
+  });
+
+  const summaryCards = [
+    { label: "Total Customers", value: stats?.customers },
+    { label: "Total Orders", value: stats?.orders },
+    { label: "Revenue", value: stats?.revenue },
+    { label: "Total Product", value: stats?.menuItems },
+  ];
   return (
     <div>
       <div className="flex justify-between items-center pb-10">
@@ -54,7 +95,7 @@ const AdminDashboard = () => {
               <div className="h-4 w-4 text-muted-foreground" />
             </div>
             <div>
-              <div className="text-2xl font-bold">{card.value}</div>
+              <div className="text-2xl font-bold">{parseInt(card.value)}</div>
             </div>
           </div>
         ))}
@@ -63,6 +104,37 @@ const AdminDashboard = () => {
       {/* grapChat Aria */}
       <div>
         <Chart />
+      </div>
+
+      {/* // Chats use from Jhukhar Vai */}
+      <div className="flex ">
+        <div className="w-1/2">
+          <BarChart
+            width={1000}
+            height={300}
+            data={chatData}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="category" />
+            <YAxis />
+            <Bar
+              dataKey="quantity"
+              fill="#8884d8"
+              shape={<TriangleBar />}
+              label={{ position: "top" }}
+            >
+              {chatData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 6]} />
+              ))}
+            </Bar>
+          </BarChart>
+        </div>
       </div>
     </div>
   );

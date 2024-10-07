@@ -7,7 +7,7 @@ const useMenu = () => {
   // const [menu, setMenu] = useState([]);
 
   // useEffect(() => {
-  //   fetch("http://localhost:5000/menu")
+  //   fetch("https://dalmart-server-site.vercel.app/menu")
   //     .then((res) => res.json())
   //     .then((data) => setMenu(data));
   // }, []);

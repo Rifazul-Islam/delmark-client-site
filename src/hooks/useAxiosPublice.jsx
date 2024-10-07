@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublice = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://dalmart-server-site.vercel.app",
 });
 
 const useAxiosPublice = () => {

@@ -131,7 +131,7 @@ const router = createBrowserRouter([
           </AdminPrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/menu/${params.id}`),
+          fetch(`https://dalmart-server-site.vercel.app/menu/${params.id}`),
       },
     ],
   },
