@@ -8,6 +8,7 @@ import Slider from "./Slider/Slider";
 import { Helmet } from "react-helmet-async";
 import Test from "./Test/Test";
 import Delivery from "./Delivery/Delivery";
+import AllProducts from "./AllProducts/AllProducts";
 
 const Home = () => {
   return (
@@ -20,6 +21,8 @@ const Home = () => {
 
       {/* <Cegegori /> */}
       <MenuItems></MenuItems>
+      <AllProducts></AllProducts>
+
       <Planting></Planting>
 
       <Recomendation />

@@ -22,7 +22,7 @@ const MainLayout = () => {
     axiosSecure.delete(`/carts/${item._id}`).then((res) => {
       // console.log(res?.data);
       refetch();
-      toast.success(`${item?.name} remove from cart`, {
+      toast.error(`${item?.name} remove from cart`, {
         position: "top-center",
       });
     });

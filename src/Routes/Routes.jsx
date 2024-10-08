@@ -20,6 +20,7 @@ import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserDashboard from "../pages/Dashboard/UserDashboard/UserDashboard";
+import Shop from "../pages/Home/Home/AllProducts/Shop";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu></Menu>,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
       },
       {
         path: "/order/:category",

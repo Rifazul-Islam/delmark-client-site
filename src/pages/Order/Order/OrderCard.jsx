@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCart from "../../../hooks/useCart";
+import { toast } from "react-toastify";
 
 const OrderCard = ({ items }) => {
   const { name, image, recipe, _id, price, quantity } = items;
@@ -27,16 +28,17 @@ const OrderCard = ({ items }) => {
       axiosSecure.post("/carts", cartItem).then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${name} add cart`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          // Swal.fire({
+          //   position: "top-end",
+          //   icon: "success",
+          //   title: `${name} add cart`,
+          //   showConfirmButton: false,
+          //   timer: 1500,
+          // });
 
           // tanStack Queary use Refetch
 
+          toast.success(`${name} add cart`);
           refetch();
         }
       });
