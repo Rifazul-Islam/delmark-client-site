@@ -103,8 +103,8 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <a className="text-2xl font-bold text-blue-500 ">
-            <span className="text-yellow-400">Dal</span>Mart
+          <a className="text-2xl font-bold text-blue-500 ml-12 ">
+            <span className="text-yellow-400">Dal</span>Mark
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">

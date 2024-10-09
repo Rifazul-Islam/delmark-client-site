@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 import Test from "./Test/Test";
 import Delivery from "./Delivery/Delivery";
 import AllProducts from "./AllProducts/AllProducts";
+import TapProduct from "./AllProducts/TapProduct";
 
 const Home = () => {
   return (
@@ -21,7 +22,8 @@ const Home = () => {
 
       {/* <Cegegori /> */}
       <MenuItems></MenuItems>
-      <AllProducts></AllProducts>
+      <TapProduct></TapProduct>
+      {/* <AllProducts></AllProducts> */}
 
       <Planting></Planting>
 

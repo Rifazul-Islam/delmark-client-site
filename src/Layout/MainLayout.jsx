@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import Footer from "../pages/Shared/Footer";
 import Navbar from "../pages/Shared/Navbar";
 import { FaShoppingCart } from "react-icons/fa";
@@ -127,12 +127,16 @@ const MainLayout = () => {
                   </div>
 
                   <div className="my-10  z-20 bg-[#ffffff] space-y-3 ">
-                    <button className="btn btn-sm bg-primary w-52 hover:text-black text-white">
-                      View Cart
-                    </button>
-                    <button className="btn btn-sm bg-primary rounded-lg w-52 hover:text-black text-white">
-                      CheckOut
-                    </button>
+                    <Link to="/dashboard/cart">
+                      <button className="btn btn-sm hover:bg-accent  bg-primary w-52 hover:text-black text-white">
+                        View Cart
+                      </button>
+                    </Link>
+                    <Link to="/dashboard/payment">
+                      <button className="btn btn-sm bg-primary hover:bg-accent  rounded-lg w-52 hover:text-black text-white">
+                        CheckOut
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </ul>

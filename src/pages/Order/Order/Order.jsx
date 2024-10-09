@@ -30,7 +30,7 @@ const Order = () => {
       />
 
       <Tabs
-        className=" mt-8"
+        className="mt-8"
         selectedIndex={tabIndex}
         onSelect={(index) => setTabIndex(index)}
       >

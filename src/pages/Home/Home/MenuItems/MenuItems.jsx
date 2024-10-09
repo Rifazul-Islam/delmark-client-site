@@ -76,7 +76,7 @@ const MenuItems = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8 px-16  ">
         {categories.map((item) => (
-          <MenuCard item={item} key={item._id} />
+          <MenuCard item={item} key={item.id} />
         ))}
       </div>
     </div>
