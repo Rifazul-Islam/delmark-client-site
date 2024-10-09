@@ -21,6 +21,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserDashboard from "../pages/Dashboard/UserDashboard/UserDashboard";
 import Shop from "../pages/Home/Home/AllProducts/Shop";
+import ShopCategory from "../pages/Home/Home/AllProducts/ShopCategory";
+import ShopDetails from "../pages/Home/Home/AllProducts/ShopDetails";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <Shop />,
+      },
+      {
+        path: "/shopCategory/:id",
+        element: <ShopCategory />,
+      },
+      {
+        path: "/ShopDetails/:id",
+        element: <ShopDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/category/${params.id}`),
       },
       {
         path: "/order/:category",

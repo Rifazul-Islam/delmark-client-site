@@ -1,9 +1,8 @@
 [
   {
-    "id": 1,
     "name": "Organic Baby Spinach",
     "reviews": 4.8,
-    "description": "Fresh, tender baby spinach leaves packed with nutrients.",
+    "description": "Tender, nutrient-packed organic baby spinach leaves. Perfect for salads, smoothies, or quick sautés. Rich in iron, vitamins, and antioxidants. Versatile ingredient for health-conscious cooking. Adds a fresh, mild flavor to any dish. Harvested at peak freshness for optimal taste and texture.",
     "price": 3.99,
     "quantity": 0,
     "wishlist": false,
@@ -11,10 +10,9 @@
     "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 2,
     "name": "Wild-caught Alaskan Salmon",
     "reviews": 4.9,
-    "description": "Premium, omega-3 rich salmon fillets from pristine Alaskan waters.",
+    "description": "Premium wild-caught Alaskan salmon, rich in omega-3s. Firm, meaty texture with a robust, buttery flavor. Excellent for grilling, baking, or raw preparations. High in protein, vitamin D, and selenium. Sustainably sourced for guilt-free indulgence. Perfect for health-conscious seafood lovers.",
     "price": 15.99,
     "quantity": 0,
     "wishlist": false,
@@ -22,10 +20,9 @@
     "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 3,
     "name": "Grass-fed Ribeye Steak",
     "reviews": 4.7,
-    "description": "Juicy, marbled ribeye from pasture-raised cattle.",
+    "description": "Premium grass-fed ribeye with exceptional marbling. Tender, buttery texture and rich flavor. Packed with beneficial omega-3s and nutrients. Ideal for grilling or pan-searing. Sourced from pasture-raised cattle for superior taste and quality. A luxurious choice for steak enthusiasts.",
     "price": 22.99,
     "quantity": 0,
     "wishlist": false,
@@ -33,10 +30,9 @@
     "image": "https://blog.foodsafety.com.au/hubfs/Imported_Blog_Media/meat-3139641_1920-2.jpg"
   },
   {
-    "id": 4,
     "name": "Exotic Dragon Fruit",
     "reviews": 4.5,
-    "description": "Vibrant pink dragon fruit with a subtle sweet flavor.",
+    "description": "Visually stunning dragon fruit with vibrant pink exterior. Sweet, subtle flavor reminiscent of kiwi and pear. Creamy texture with crunchy seeds. Rich in antioxidants, vitamin C, and fiber. Versatile in smoothies, fruit salads, or as a unique garnish. Adds exotic flair to your culinary creations.",
     "price": 5.99,
     "quantity": 0,
     "wishlist": false,
@@ -44,10 +40,9 @@
     "image": "https://images.unsplash.com/photo-1527325678964-54921661f888?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 5,
     "name": "Cold-pressed Green Juice",
     "reviews": 4.6,
-    "description": "Nutrient-packed juice blend of kale, cucumber, and apple.",
+    "description": "Nutrient-dense green juice blend of kale, cucumber, and apple. Cold-pressed to preserve vitamins and enzymes. Rich in chlorophyll and antioxidants. Supports detoxification and boosts immunity. Refreshing, balanced flavor. Perfect for health-conscious individuals seeking a natural energy boost.",
     "price": 6.99,
     "quantity": 0,
     "wishlist": false,
@@ -55,10 +50,9 @@
     "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 6,
     "name": "Organic Almond Milk",
     "reviews": 4.7,
-    "description": "Creamy, dairy-free milk alternative made from organic almonds.",
+    "description": "Creamy, organic almond milk with rich nutty flavor. Dairy-free and vegan-friendly. Excellent source of vitamin E. Versatile for cereals, smoothies, or drinking straight. Great for baking and creating sauces. Low in calories, high in flavor. Perfect for health-conscious individuals seeking a delicious milk alternative.",
     "price": 4.99,
     "quantity": 0,
     "wishlist": false,
@@ -66,10 +60,9 @@
     "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 7,
     "name": "Gourmet Veggie Pizza",
     "reviews": 4.8,
-    "description": "Stone-baked pizza topped with a medley of fresh vegetables.",
+    "description": "Artisanal frozen pizza with hand-stretched, stone-baked crust. Topped with premium vegetables and signature tomato sauce. Proprietary cheese blend for creamy finish. Restaurant-quality at home. Perfect balance of flavors and textures. Ideal for quick, delicious meals or casual entertaining.",
     "price": 9.99,
     "quantity": 0,
     "wishlist": false,
@@ -77,10 +70,9 @@
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 8,
     "name": "Rainbow Chard Bundle",
     "reviews": 4.6,
-    "description": "Colorful, nutrient-rich chard leaves for vibrant dishes.",
+    "description": "Vibrant mix of red, yellow, and white-stemmed chard. Mild, earthy flavor with sweet, crunchy stems. Rich in vitamins A, C, K, and minerals. Versatile for sautés, salads, or wraps. Adds color and nutrition to dishes. Perfect for creating eye-catching, healthful meals.",
     "price": 3.49,
     "quantity": 0,
     "wishlist": false,
@@ -88,10 +80,9 @@
     "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 9,
     "name": "Sushi-grade Tuna Steak",
     "reviews": 4.9,
-    "description": "Premium, sashimi-quality tuna for the ultimate seafood experience.",
+    "description": "Premium sushi-grade tuna with vibrant color and firm texture. Perfect for sashimi, poke bowls, or searing. Rich in protein and omega-3 fatty acids. Sustainably sourced and flash-frozen for optimal freshness. Mild flavor ideal for various preparations. A must-have for seafood enthusiasts and home sushi chefs.",
     "price": 24.99,
     "quantity": 0,
     "wishlist": false,
@@ -99,10 +90,9 @@
     "image": "https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 10,
     "name": "Wagyu Beef Burgers",
     "reviews": 4.8,
-    "description": "Luxurious burgers made from premium Wagyu beef.",
+    "description": "Luxurious burgers made from world-renowned Wagyu beef. Exceptional marbling for unparalleled juiciness and flavor. Minimally processed to showcase beef quality. Perfect for grilling or pan-searing. Elevates the classic burger to gourmet status. Ideal for special occasions or when craving the ultimate burger experience.",
     "price": 18.99,
     "quantity": 0,
     "wishlist": false,
@@ -110,10 +100,9 @@
     "image": "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 11,
     "name": "Golden Kiwi Pack",
     "reviews": 4.7,
-    "description": "Sweet and tangy golden kiwis, rich in vitamin C.",
+    "description": "Sweet, aromatic golden kiwis with smooth, edible skin. Tropical flavor notes of mango and pineapple. Higher vitamin C content than oranges. Convenient and nutritious snack. Adds vibrant color to fruit salads and desserts. Perfect for those seeking a unique and healthful fruit option.",
     "price": 4.99,
     "quantity": 0,
     "wishlist": false,
@@ -121,10 +110,9 @@
     "image": "https://images.unsplash.com/photo-1585059895524-72359e06133a?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 12,
     "name": "Sparkling Coconut Water",
     "reviews": 4.5,
-    "description": "Refreshing, naturally sweet coconut water with a bubbly twist.",
+    "description": "Refreshing blend of coconut water and light carbonation. Natural electrolytes for hydration. No added sugars or artificial flavors. Perfect post-workout or as a healthier soda alternative. Light tropical flavor, great for mixing in cocktails. Guilt-free refreshment for any occasion.",
     "price": 2.99,
     "quantity": 0,
     "wishlist": false,
@@ -132,10 +120,9 @@
     "image": "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 13,
     "name": "Grass-fed A2 Milk",
     "reviews": 4.8,
-    "description": "Creamy, easily digestible milk from heritage breed cows.",
+    "description": "Premium milk from heritage cows producing only A2 protein. Sourced from grass-fed cattle for superior nutrition. Rich, creamy texture with slightly sweet flavor. Potentially easier to digest than conventional milk. Pasteurized to ensure safety while preserving nutrients. Ideal for dairy lovers seeking high-quality, digestible milk.",
     "price": 5.99,
     "quantity": 0,
     "wishlist": false,
@@ -143,10 +130,9 @@
     "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 14,
     "name": "Artisanal Gelato Selection",
     "reviews": 4.9,
-    "description": "Assorted flavors of authentic Italian gelato.",
+    "description": "Authentic Italian-style gelato in various flavors. Crafted in small batches using premium ingredients. Dense, silky texture with intense flavors. Lower fat content than traditional ice cream. Perfect for sophisticated desserts or indulgent treats. Brings the essence of Italian gelateria to your home freezer.",
     "price": 12.99,
     "quantity": 0,
     "wishlist": false,
@@ -154,10 +140,9 @@
     "image": "https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 15,
     "name": "Heirloom Tomato Medley",
     "reviews": 4.7,
-    "description": "Colorful mix of flavorful heirloom tomato varieties.",
+    "description": "Colorful assortment of heirloom tomato varieties. Each type offers unique flavors, from sweet to tangy. Grown using traditional methods for optimal taste. Perfect for salads, light cooking, or showcasing in dishes. Rich in lycopene and vitamins. Brings gourmet quality and visual appeal to your meals.",
     "price": 6.99,
     "quantity": 0,
     "wishlist": false,
@@ -165,10 +150,9 @@
     "image": "https://images.unsplash.com/photo-1518977822534-7049a61ee0c2?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 16,
     "name": "Wild-caught Mahi-Mahi",
     "reviews": 4.6,
-    "description": "Firm, flaky fish fillets perfect for grilling or baking.",
+    "description": "Sustainably sourced Mahi-Mahi with firm texture and large, moist flakes. Mild, sweet flavor with a hint of nuttiness. Versatile for grilling, baking, or pan-searing. High in protein and nutrients. Ideal for those who enjoy fish without strong 'fishy' taste. Perfect for various culinary applications.",
     "price": 14.99,
     "quantity": 0,
     "wishlist": false,
@@ -176,10 +160,9 @@
     "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 17,
     "name": "Free-range Chicken Breast",
     "reviews": 4.7,
-    "description": "Tender, hormone-free chicken breasts from pasture-raised birds.",
+    "description": "Premium chicken breasts from free-range birds. Tender, flavorful meat from stress-free chickens. No added hormones or antibiotics. Versatile for various cooking methods. Rich in lean protein and essential nutrients. Ideal for health-conscious consumers seeking high-quality poultry. Perfect base for countless delicious, nutritious meals.",
     "price": 9.99,
     "quantity": 0,
     "wishlist": false,
@@ -187,10 +170,9 @@
     "image": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 18,
     "name": "Organic Mango",
     "reviews": 4.8,
-    "description": "Sweet, juicy mangoes ripened to perfection.",
+    "description": "Sun-ripened organic mangoes bursting with tropical flavor. Sweet, juicy flesh with vibrant orange color. Rich in vitamins A and C. Perfect for fresh eating, smoothies, or culinary creations. No synthetic pesticides or fertilizers used. Brings a taste of paradise to your fruit bowl.",
     "price": 2.99,
     "quantity": 0,
     "wishlist": false,
@@ -198,10 +180,9 @@
     "image": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 19,
     "name": "Kombucha Variety Pack",
     "reviews": 4.5,
-    "description": "Assorted flavors of probiotic-rich fermented tea.",
+    "description": "Assorted flavors of probiotic-rich kombucha. Crafted from organic teas and natural ingredients. Supports digestive health and boosts immunity. Low-calorie, refreshing alternative to sodas. Ranges from classic to adventurous flavor combinations. Perfect for kombucha enthusiasts or those curious about fermented beverages.",
     "price": 16.99,
     "quantity": 0,
     "wishlist": false,
@@ -209,10 +190,9 @@
     "image": "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 20,
     "name": "Organic Oat Milk",
     "reviews": 4.6,
-    "description": "Creamy, plant-based milk alternative made from organic oats.",
+    "description": "Creamy, plant-based milk alternative made from organic oats. Smooth texture with subtle sweetness. Naturally free from lactose, soy, and nuts. Rich in fiber and beta-glucans. Versatile for beverages, cereal, or cooking. Sustainable choice for eco-conscious consumers. Perfect for those seeking a delicious, nutritious milk alternative.",
     "price": 4.49,
     "quantity": 0,
     "wishlist": false,
@@ -220,113 +200,13 @@
     "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80&fm=jpg"
   },
   {
-    "id": 21,
     "name": "Cauliflower Pizza Crust",
     "reviews": 4.4,
-    "description": "Low-carb, gluten-free pizza base made from cauliflower.",
-    "price": 7.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Frozen",
-    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 22,
-    "name": "Purple Asparagus Bundle",
-    "reviews": 4.7,
-    "description": "Rare, vibrant purple asparagus spears with a delicate flavor.",
-    "price": 5.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Vegetables",
-    "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 23,
-    "name": "Smoked Trout Fillets",
-    "reviews": 4.8,
-    "description": "Delicately smoked trout fillets, ready to serve.",
-    "price": 11.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Fish",
-    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 24,
-    "name": "Venison Tenderloin",
-    "reviews": 4.9,
-    "description": "Lean, tender venison for a gourmet dining experience.",
-    "price": 29.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Meat",
-    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 25,
-    "name": "Passion Fruit Pack",
-    "reviews": 4.6,
-    "description": "Exotic, tart passion fruits bursting with flavor.",
-    "price": 6.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Fruits",
-    "image": "https://images.unsplash.com/photo-1604495772376-9657f0035eb5?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 26,
-    "name": "Matcha Green Tea Latte",
-    "reviews": 4.7,
-    "description": "Premium Japanese matcha blended into a creamy latte.",
-    "price": 4.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Beverages",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToBvyzEeiZMANFWk-IPeQopFdd_HAmzWycSg&s"
-  },
-  {
-    "id": 27,
-    "name": "Goat Milk Kefir",
-    "reviews": 4.5,
-    "description": "Probiotic-rich fermented goat milk for gut health.",
-    "price": 5.49,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Milk",
-    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 28,
-    "name": "Acai Bowl Kit",
-    "reviews": 4.8,
-    "description": "Everything you need to make delicious acai bowls at home.",
-    "price": 13.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Frozen",
-    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 29,
-    "name": "Romanesco Broccoli",
-    "reviews": 4.7,
-    "description": "Visually stunning, fractal-patterned vegetable with a nutty flavor.",
+    "description": "Low-carb pizza base made primarily from cauliflower. Crispy texture with subtle, nutty flavor.",
     "price": 4.99,
     "quantity": 0,
     "wishlist": false,
     "category": "Vegetables",
     "image": "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=800&q=80&fm=jpg"
-  },
-  {
-    "id": 30,
-    "name": "Caviar Sampler Set",
-    "reviews": 4.9,
-    "description": "Luxurious assortment of premium caviar varieties.",
-    "price": 99.99,
-    "quantity": 0,
-    "wishlist": false,
-    "category": "Fish",
-    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80&fm=jpg"
   }
 ]

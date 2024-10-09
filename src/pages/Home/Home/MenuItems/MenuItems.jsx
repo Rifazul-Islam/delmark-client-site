@@ -1,72 +1,75 @@
 import SelectTitle from "../../../../components/SelectTitle";
 import MenuCard from "./MenuCard";
 import useMenu from "../../../../hooks/useMenu";
+import useAxiosPublice from "../../../../hooks/useAxiosPublice";
+import { useQuery } from "@tanstack/react-query";
 
 const MenuItems = () => {
-  const [menu] = useMenu();
+  const axiosPublice = useAxiosPublice();
+  const { data: categories = [] } = useQuery({
+    queryKey: ["category"],
+    queryFn: async () => {
+      const res = await axiosPublice.get("/category");
+      return res.data;
+    },
+  });
 
-  let popular = menu.filter((item) => item.category === "popular");
   // console.log("check the Popurlar Data", popular);
-  const categories = [
-    {
-      id: 1,
-      name: "Frozen Mixed Vegetables",
-      image: "https://i.ibb.co.com/X2yF0xR/flow.png",
-      category: "Frozen",
-      backgroundColor: "#E3F2FD",
-      changeImage: true,
-    },
-    {
-      id: 2,
-      name: "Premium Beef Steak",
-      image: "https://i.ibb.co.com/VTW2fsS/meat.png",
-      category: "Meat and Fish",
-      backgroundColor: "#FFEBEE",
-      changeImage: true,
-    },
-    {
-      id: 3,
-      name: "Organic Whole Milk",
-      image: "https://i.ibb.co.com/0Kyvd1X/organic-milk.png",
-      category: "Milk",
-      backgroundColor: "#F3E5F5",
-      changeImage: true,
-    },
-    {
-      id: 4,
-      name: "Fresh Orange Juice",
-      image: "https://i.ibb.co.com/gJPNRMN/joss.png",
-      category: "Beverages",
-      backgroundColor: "#FFF3E0",
-      changeImage: true,
-    },
+  // const categories = [
+  //   {
+  //     name: "Frozen Mixed Vegetables",
+  //     image: "https://i.ibb.co.com/X2yF0xR/flow.png",
+  //     category: "Frozen",
+  //     backgroundColor: "#E3F2FD",
+  //     changeImage: true,
+  //   },
+  //   {
+  //     name: "Premium Beef Steak",
+  //     image: "https://i.ibb.co.com/VTW2fsS/meat.png",
+  //     category: "Fish",
+  //     backgroundColor: "#FFEBEE",
+  //     changeImage: true,
+  //   },
+  //   {
+  //     name: "Organic Whole Milk",
+  //     image: "https://i.ibb.co.com/0Kyvd1X/organic-milk.png",
+  //     category: "Milk",
+  //     backgroundColor: "#F3E5F5",
+  //     changeImage: true,
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Fresh Orange Juice",
+  //     image: "https://i.ibb.co.com/gJPNRMN/joss.png",
+  //     category: "Beverages",
+  //     backgroundColor: "#FFF3E0",
+  //     changeImage: true,
+  //   },
 
-    {
-      id: 5,
-      name: "Ripe Red Strawberries",
-      image: "https://i.ibb.co.com/3rX6grW/lici.png",
-      category: "Fruits",
-      backgroundColor: "#FCE4EC",
-      changeImage: true,
-    },
+  //   {
+  //     name: "Ripe Red Strawberries",
+  //     image: "https://i.ibb.co.com/3rX6grW/lici.png",
+  //     category: "Fruits",
+  //     backgroundColor: "#FCE4EC",
+  //     changeImage: true,
+  //   },
 
-    {
-      id: 6,
-      name: "Fresh Atlantic Salmon",
-      image: "https://i.ibb.co.com/VghFNcN/vagita.png",
-      category: "Meat",
-      backgroundColor: "#FFF3E0",
-      changeImage: true,
-    },
-    {
-      id: 7,
-      name: "Fresh Broccoli",
-      image: "https://i.ibb.co.com/J2n4bjs/fico.png",
-      category: "Vegetables",
-      backgroundColor: "#E8F5E9",
-      changeImage: true,
-    },
-  ];
+  //   {
+  //     name: "Fresh Atlantic Salmon",
+  //     image: "https://i.ibb.co.com/VghFNcN/vagita.png",
+  //     category: "Meat",
+  //     backgroundColor: "#FFF3E0",
+  //     changeImage: true,
+  //   },
+  //   {
+  //     name: "Fresh Broccoli",
+  //     image: "https://i.ibb.co.com/J2n4bjs/fico.png",
+  //     category: "Vegetables",
+  //     backgroundColor: "#E8F5E9",
+  //     changeImage: true,
+  //   },
+  // ];
+
   return (
     <div className="mb-16 bg-base-100">
       <SelectTitle

@@ -4,8 +4,10 @@ import "react-tabs/style/react-tabs.css";
 import AllProducts from "./AllProducts";
 import { useEffect, useState } from "react";
 import "./TapProducts.css";
+import useCategory from "../../../../hooks/useCategory";
 const TapProduct = () => {
-  const [products, setProducts] = useState([]);
+  const [category] = useCategory();
+
   const categories = [
     "All Products",
     "Fish",
@@ -16,17 +18,11 @@ const TapProduct = () => {
   ];
   const [tabIndex, setTabIndex] = useState(0);
 
-  useEffect(() => {
-    fetch("/products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
-  const vegetables = products.filter((item) => item.category === "Vegetables");
-  const fish = products.filter((item) => item.category === "Fish");
-  const meat = products.filter((item) => item.category === "Meat");
-  const fruits = products.filter((item) => item.category === "Fruits");
-  const milk = products.filter((item) => item.category === "Milk");
+  const vegetables = category.filter((item) => item.category === "Vegetables");
+  const fish = category.filter((item) => item.category === "Fish");
+  const meat = category.filter((item) => item.category === "Meat");
+  const fruits = category.filter((item) => item.category === "Fruits");
+  const milk = category.filter((item) => item.category === "Milk");
   return (
     <div className="pt-16">
       <div className="text-center">
@@ -46,7 +42,7 @@ const TapProduct = () => {
           })}
         </TabList>
         <TabPanel>
-          <AllProducts producted={products} />
+          <AllProducts producted={category} />
         </TabPanel>
 
         <TabPanel>

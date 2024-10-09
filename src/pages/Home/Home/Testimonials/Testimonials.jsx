@@ -8,8 +8,8 @@ import "swiper/css/pagination";
 // import required modules
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
-import { Rating } from "@smastrom/react-rating";
 import { ImQuotesRight } from "react-icons/im";
+import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import SelectTitle from "../../../../components/SelectTitle";
 const Testimonials = () => {
