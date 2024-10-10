@@ -49,11 +49,9 @@ const Views = ({ product }) => {
         <LuShoppingCart />
       </p>
 
-      <div onClick={() => setModelId(product._id)}>
+      <div onClick={() => document.getElementById("my_modal_3").showModal()}>
         <p className="bg-white cursor-pointer w-8 h-8 rounded-full flex justify-center items-center">
-          <FiEye
-            onClick={() => document.getElementById("my_modal_3").showModal()}
-          />
+          <FiEye onClick={() => setModelId(product)} />
         </p>
         {/* You can open the modal using document.getElementById('ID').showModal() method */}
         <dialog
@@ -72,7 +70,7 @@ const Views = ({ product }) => {
               <div className="md:w-1/2 w-full px-3  ">
                 <img
                   className="rounded-lg h-[370px] w-full"
-                  src={selectedProduct?.image}
+                  src={modelId?.image}
                   alt=""
                 />
               </div>
@@ -82,25 +80,21 @@ const Views = ({ product }) => {
                     {/* {views?.category} */}
                   </span>
                   <h2 className="py-1.5 text-2xl font-poppins font-semibold">
-                    {selectedProduct?.name}
+                    {name}
                   </h2>
                   <div className="flex items-center gap-4 mt-4">
                     <span className="px-4 py-1 bg-gray-300 rounded mr-9">
                       In Stock
                     </span>
-                    <Rating
-                      style={{ maxWidth: 92 }}
-                      value={selectedProduct?.reviews}
-                      readOnly
-                    />
-                    <span> ({selectedProduct?.reviews} Views) </span>
+                    <Rating style={{ maxWidth: 92 }} value={reviews} readOnly />
+                    <span> ({reviews} Views) </span>
                   </div>
                   {/* Description Area */}
                   <div className="mt-4">
                     {open ? (
                       <>
                         <p className="text-green-700 text-sm">
-                          {selectedProduct?.description}
+                          {description}
 
                           <span
                             className=" cursor-pointer"
@@ -113,7 +107,7 @@ const Views = ({ product }) => {
                     ) : (
                       <>
                         <p className="text-green-700 text-sm">
-                          {collect?.description?.slice(0, 100)}
+                          {description?.slice(0, 100)}
                           <span
                             className=" cursor-pointer"
                             onClick={() => setOpen(true)}
@@ -126,7 +120,7 @@ const Views = ({ product }) => {
                   </div>
                   <p className="text-2xl font-bold font-poppins py-3">
                     {" "}
-                    ${collect?.price}
+                    ${price}
                   </p>
 
                   {/* quantity Increatem System and Adto cart */}

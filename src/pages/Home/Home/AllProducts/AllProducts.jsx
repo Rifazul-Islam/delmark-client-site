@@ -1,8 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublice from "../../../../hooks/useAxiosPublice";
 
 const AllProducts = ({ producted }) => {
+  const [modelId, setModelId] = useState(null);
+  const axiosPublic = useAxiosPublice();
+  const { data: reviewData } = useQuery({
+    queryKey: ["reviewsed", modelId],
+    enabled: !!modelId,
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/category/${modelId}`);
+      return res?.data;
+    },
+  });
   return (
     <div className="my-16">
       {/* Product Map Area */}
@@ -11,13 +23,23 @@ const AllProducts = ({ producted }) => {
         {producted?.length > 6 ? (
           <>
             {producted.slice(0, 7).map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                setModelId={setModelId}
+                reviewData={reviewData}
+              />
             ))}
           </>
         ) : (
           <>
             {producted.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                setModelId={setModelId}
+                reviewData={reviewData}
+              />
             ))}
           </>
         )}
