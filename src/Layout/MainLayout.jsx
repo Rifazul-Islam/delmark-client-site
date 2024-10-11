@@ -6,28 +6,35 @@ import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../hooks/useCart";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
+import useShops from "../hooks/useShops";
 
 const MainLayout = () => {
   const location = useLocation();
-  const [cart, refetch] = useCart();
+  const [shops, refetch] = useShops();
   const [show, setShow] = useState(false);
   const axiosSecure = useAxiosSecure();
   const noNavberFooter =
     location.pathname.includes("/login") ||
     location.pathname.includes("/signUp");
 
-  const totalPrice = cart.reduce((pro, current) => pro + current.price, 0);
+  // const totalPrice = shops?.reduce((pro, current) => pro + current.price, 0);
 
   const handlerDelete = (item) => {
-    axiosSecure.delete(`/carts/${item._id}`).then((res) => {
+    axiosSecure.delete(`/shops/${item._id}`).then((res) => {
       // console.log(res?.data);
-      refetch();
-      toast.error(`${item?.name} remove from cart`, {
-        position: "top-center",
-      });
+      if (res.data?.deletedCount > 0) {
+        refetch();
+        toast.error(`${item?.name} remove from cart`, {
+          position: "top-center",
+          autoClose: 500,
+        });
+      } else {
+        toast.error("Some Thing wrong");
+      }
     });
   };
 
+  console.log(shops);
   return (
     <div className="relative z-10">
       {noNavberFooter || <Navbar></Navbar>}
@@ -42,7 +49,7 @@ const MainLayout = () => {
                 <div className="cursor-pointer">
                   <FaShoppingCart className="text-xl" />
                   <div className="absolute badge-secondary flex justify-center items-center right-0 w-5 h-5 -top-4 left-4  rounded-full">
-                    {cart?.length}
+                    {shops?.length}
                   </div>
                 </div>
               </label>
@@ -69,11 +76,11 @@ const MainLayout = () => {
                     X
                   </label>
                 </div>
-                {cart?.length > 0 ? (
+                {shops?.length > 0 ? (
                   <>
                     <table className="text-sm overflow-y  mt-4 mx-4">
                       <tbody>
-                        {cart.map((item) => (
+                        {shops.map((item) => (
                           <tr
                             key={item._id}
                             className="border-b text-black font-semibold z-10"
@@ -123,7 +130,7 @@ const MainLayout = () => {
                 <div className="z-30 fixed bg-[#ffffff] w-full  border-t-[2px] pr-10 border-gray-200 bottom-0  mx-4   font-bold text-xl  text-center mb-1  p-4">
                   <div className="flex justify-between w-52">
                     <p className="text-gray-700"> Total Price </p>
-                    <p className="text-gray-500"> $ {totalPrice.toFixed(2)}</p>
+                    {/* <p className="text-gray-500"> $ {totalPrice.toFixed(2)}</p> */}
                   </div>
 
                   <div className="my-10  z-20 bg-[#ffffff] space-y-3 ">

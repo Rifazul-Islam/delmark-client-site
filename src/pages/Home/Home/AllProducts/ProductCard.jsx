@@ -21,13 +21,13 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
 
   const addToCart = (id) => {
     toast.success("Product cart from here", { autoClose: 500 });
-    console.log(id);
+    // console.log(id);
   };
   const handlerWishList = (wishlistId) => {
     toast.success("WishList Cart add here ");
-    console.log(wishlistId);
+    // console.log(wishlistId);
   };
-  console.log(wished);
+  // console.log(wished);
   return (
     <div className="card  p-1.5 card-compact bg-base-100 shadow-xl ">
       <figure className="cursor-pointer relative group">

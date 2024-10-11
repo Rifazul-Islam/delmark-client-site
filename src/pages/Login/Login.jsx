@@ -36,24 +36,7 @@ const Login = () => {
     loginUser(email, password).then((result) => {
       const user = result.user;
 
-      toast.success("User Login Success");
-      // Swal.fire({
-      //   title: "User Login Successfully",
-      //   showClass: {
-      //     popup: `
-      //       animate__animated
-      //       animate__fadeInUp
-      //       animate__faster
-      //     `,
-      //   },
-      //   hideClass: {
-      //     popup: `
-      //       animate__animated
-      //       animate__fadeOutDown
-      //       animate__faster
-      //     `,
-      //   },
-      // });
+      toast.success("User Login Success", { autoClose: 500 });
 
       navigate(from, { replace: true });
     });

@@ -2,7 +2,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const MenuCard = ({ item }) => {
   const { name, image, backgroundColor, category } = item;
-  console.log("just titel chck", { name });
+
   return (
     <Link to={`/shopCategory/${category}`}>
       <div

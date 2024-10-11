@@ -15,6 +15,8 @@ import useAuth from "../../../../hooks/useAuth";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useCart from "../../../../hooks/useCart";
+import useShops from "../../../../hooks/useShops";
+import Swal from "sweetalert2";
 const ShopDetails = () => {
   const datas = useLoaderData();
   const { name, description, image, price, category, reviews, quantity, _id } =
@@ -25,7 +27,7 @@ const ShopDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const [, refetch] = useCart();
+  const [, refetch] = useShops();
 
   const handlerAddToCart = () => {
     if (user && user?.email) {
