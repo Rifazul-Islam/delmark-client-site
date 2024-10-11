@@ -18,6 +18,12 @@ const Delivery = () => {
           Fulbary
         </button>
       </div>
+
+      <button className="relative ml-10 px-4 py-2 bg-green-500 text-black font-semibold rounded-full shadow-md">
+        Already Add To Cart
+        <span className="absolute top-[50%] left-0 w-3 h-1.5 bg-green-500 -translate-x-[50%] -translate-y-[50%] rounded-full transform rotate-45"></span>
+      </button>
+
       <div className="w-96 mx-auto">
         <Lottie animationData={deliveryTruck} loop={true} />
       </div>

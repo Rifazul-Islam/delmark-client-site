@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "https://dalmart-server-site.vercel.app",
+  baseURL: "http://localhost:5000",
 });
 
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { userLogout } = useAuth();
-
+  // https://dalmart-server-site.vercel.app
   // Add a request interceptor
   axiosSecure.interceptors.request.use(
     function (config) {

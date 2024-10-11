@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useState } from "react";
@@ -11,11 +11,56 @@ import {
   FaPlus,
 } from "react-icons/fa";
 import { FaClover, FaSquareXTwitter } from "react-icons/fa6";
+import useAuth from "../../../../hooks/useAuth";
+import { toast } from "react-toastify";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useCart from "../../../../hooks/useCart";
 const ShopDetails = () => {
   const datas = useLoaderData();
-  const { name, description, image, price, category, reviews } = datas;
+  const { name, description, image, price, category, reviews, quantity, _id } =
+    datas;
   const [open, setOpen] = useState(false);
   const [counter, setCounter] = useState(1);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const axiosSecure = useAxiosSecure();
+  const [, refetch] = useCart();
+
+  const handlerAddToCart = () => {
+    if (user && user?.email) {
+      const productInfo = {
+        menuId: _id,
+        email: user?.email,
+        name,
+        image,
+        price,
+        quantity,
+      };
+
+      axiosSecure.post("/shops", productInfo).then((res) => {
+        if (res.data.insertedId) {
+          toast.success(`${name}, Shoping Completed`, { autoClose: 500 });
+          refetch();
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "You are Not Login?",
+        text: "Please Login First then Add to Cart",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col md:flex-row  gap-6 my-16">
       <div className="md:w-1/2 w-full px-3 md:px-0">
@@ -86,7 +131,7 @@ const ShopDetails = () => {
                 </button>
               </span>
             </div>
-            <div>
+            <div onClick={handlerAddToCart}>
               <button className="btn px-24 bg-primary text-white hover:bg-accent">
                 Add To Cart
               </button>

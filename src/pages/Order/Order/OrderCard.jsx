@@ -28,17 +28,7 @@ const OrderCard = ({ items }) => {
       axiosSecure.post("/carts", cartItem).then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {
-          // Swal.fire({
-          //   position: "top-end",
-          //   icon: "success",
-          //   title: `${name} add cart`,
-          //   showConfirmButton: false,
-          //   timer: 1500,
-          // });
-
-          // tanStack Queary use Refetch
-
-          toast.success(`${name} add cart`);
+          toast.success(`${name} add cart`, { autoClose: 500 });
           refetch();
         }
       });
