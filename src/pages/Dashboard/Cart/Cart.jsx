@@ -1,13 +1,13 @@
 import React from "react";
-import useCart from "../../../hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import useShops from "../../../hooks/useShops";
 
 const Cart = () => {
-  const [cart, refetch] = useCart();
-  const price = cart.reduce((pro, current) => pro + current.price, 0);
+  const [shops, refetch] = useShops();
+  const price = shops?.reduce((pro, current) => pro + current.price, 0);
   const totalPrice = price.toFixed(2);
   const axiosSecure = useAxiosSecure();
   const handlerDelete = (id) => {
@@ -21,7 +21,7 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/carts/${id}`).then((res) => {
+        axiosSecure.delete(`/shops/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch();
@@ -39,9 +39,9 @@ const Cart = () => {
   return (
     <div>
       <div className="flex justify-between ">
-        <h2 className="text-2xl font-semibold">Total Items : {cart.length}</h2>
+        <h2 className="text-2xl font-semibold">Total Items : {shops.length}</h2>
         <h2 className="text-2xl font-semibold"> Total Price : {totalPrice} </h2>
-        {cart?.length ? (
+        {shops?.length ? (
           <Link to="/dashboard/payment">
             <button className="text-lg btn bg-accent px-8 text-white">
               Pay
@@ -67,7 +67,7 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map((item, indx) => (
+            {shops.map((item, indx) => (
               <tr key={item._id}>
                 <th>
                   <label>{indx + 1}</label>

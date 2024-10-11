@@ -33,13 +33,15 @@ const Login = () => {
     const password = form.password.value;
     const result = { email, password };
 
-    loginUser(email, password).then((result) => {
-      const user = result.user;
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
 
-      toast.success("User Login Success", { autoClose: 500 });
+        toast.success("User Login Success", { autoClose: 500 });
 
-      navigate(from, { replace: true });
-    });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   const handlerValidateCaptcha = (e) => {

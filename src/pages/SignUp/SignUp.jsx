@@ -8,6 +8,7 @@ import { FaArrowRight, FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import useAxiosPublice from "../../hooks/useAxiosPublice";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,11 +25,11 @@ const SignUp = () => {
   const onSubmit = (data) => {
     // console.log(data);
 
-    createUser(data.email, data.password).then((result) => {
-      const user = result.user;
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
 
-      udateUserProfile(data.name, data.photo)
-        .then(() => {
+        udateUserProfile(data.name, data.photo).then(() => {
           const users = {
             name: data?.name,
             email: data?.email,
@@ -47,9 +48,11 @@ const SignUp = () => {
               navigate("/");
             }
           });
-        })
-        .catch((error) => console.log(error));
-    });
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (

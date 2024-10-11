@@ -1,6 +1,6 @@
 import { View } from "lucide-react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Views from "./Views";
 import { FaClover } from "react-icons/fa6";
 import { Rating } from "@smastrom/react-rating";
@@ -11,6 +11,10 @@ import { VscHeart } from "react-icons/vsc";
 import { toast } from "react-toastify";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import "./ProductCard.css";
+import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useShops from "../../../../hooks/useShops";
+import Swal from "sweetalert2";
 
 const ProductCard = ({ product, setModelId, reviewData }) => {
   const { name, image, price, _id, category, description } = product;
@@ -18,7 +22,11 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [counter, setCounter] = useState(1);
   const [wished, setWished] = useState(false);
-
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [, refetch] = useShops();
+  const navigate = useNavigate();
+  const location = useLocation();
   const addToCart = (id) => {
     toast.success("Product cart from here", { autoClose: 500 });
     // console.log(id);
@@ -28,6 +36,45 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
     // console.log(wishlistId);
   };
   // console.log(wished);
+
+  //  ========== Add to Cart Insert Functionality =========
+
+  const handlerAddToCart = (reviewData) => {
+    if (user && user?.email) {
+      const productInfo = {
+        menuId: reviewData?._id,
+        name: reviewData?.name,
+        email: user?.email,
+        price: reviewData?.price,
+        quantity: reviewData?.quantity,
+        image: reviewData?.image,
+      };
+
+      axiosSecure.post("/shops", productInfo).then((res) => {
+        if (res.data.insertedId) {
+          toast.success(`${reviewData?.name} Shopping Completed`);
+          refetch();
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "You are Not Login?",
+        text: "Please Login First then Add to Cart",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
+
+  // ============ Functionality  End Point =========
+
   return (
     <div className="card  p-1.5 card-compact bg-base-100 shadow-xl ">
       <figure className="cursor-pointer relative group">
@@ -164,7 +211,10 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
                           </span>
                         </div>
                         <div>
-                          <button className="btn px-24 bg-primary text-white hover:bg-accent">
+                          <button
+                            onClick={() => handlerAddToCart(reviewData)}
+                            className="btn px-24 bg-primary text-white hover:bg-accent"
+                          >
                             Add To Cart
                           </button>
                         </div>

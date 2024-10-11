@@ -17,7 +17,7 @@ const MainLayout = () => {
     location.pathname.includes("/login") ||
     location.pathname.includes("/signUp");
 
-  // const totalPrice = shops?.reduce((pro, current) => pro + current.price, 0);
+  const totalPrice = shops?.reduce((pro, current) => pro + current.price, 0);
 
   const handlerDelete = (item) => {
     axiosSecure.delete(`/shops/${item._id}`).then((res) => {
@@ -34,7 +34,7 @@ const MainLayout = () => {
     });
   };
 
-  console.log(shops);
+  // console.log(shops);
   return (
     <div className="relative z-10">
       {noNavberFooter || <Navbar></Navbar>}
@@ -98,9 +98,11 @@ const MainLayout = () => {
                               <span className="font-semibold block">
                                 {item.name}
                               </span>
-                              <p className="text-gray-500">
-                                ${item.price.toFixed(2)}
-                              </p>
+                              {totalPrice && (
+                                <p className="text-gray-500">
+                                  $ {totalPrice?.toFixed(2)}
+                                </p>
+                              )}
                             </td>
                             <td>
                               <button
@@ -130,7 +132,11 @@ const MainLayout = () => {
                 <div className="z-30 fixed bg-[#ffffff] w-full  border-t-[2px] pr-10 border-gray-200 bottom-0  mx-4   font-bold text-xl  text-center mb-1  p-4">
                   <div className="flex justify-between w-52">
                     <p className="text-gray-700"> Total Price </p>
-                    {/* <p className="text-gray-500"> $ {totalPrice.toFixed(2)}</p> */}
+                    {totalPrice && (
+                      <p className="text-gray-500">
+                        $ {totalPrice?.toFixed(2)}
+                      </p>
+                    )}
                   </div>
 
                   <div className="my-10  z-20 bg-[#ffffff] space-y-3 ">

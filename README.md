@@ -41,5 +41,16 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - Client side Confirm Payment Intern Create Method.
 - Some User user Information and useEffect all woking payment confirm
 
+# How To Pagination Emplemnt Any project Easy Way ?
+
+- Fist Step Back-End from, that colloction pagination use, her one api create. EstimedDocumentCount Method use total length get, pass front-end site, api
+- Second Step Front-end site any function throght state set doing,
+- Third Step tow state create one currentPage second state ProductPerPage seen,
+- Fourth Step Count with ProductPerPage Divide / doing.
+- Five Step veriable total result new array convert doing.[...Array(numberOfPages).keys()] like new array created dong.
+- Six Step top pages veriable result map doing. tow button use previus page and Next Page.
+- Seven Step button Tow Function declear this function condition parpus use?.
+- This page pagintion use, your fist api Query use and Size and page send backEnd.
+
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

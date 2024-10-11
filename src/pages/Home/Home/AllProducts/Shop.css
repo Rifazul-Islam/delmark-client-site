@@ -1,0 +1,8 @@
+.def {
+  background: rgb(185, 200, 206);
+}
+
+.selected {
+  background: green;
+  color: white;
+}
