@@ -7,6 +7,7 @@ import useCart from "../hooks/useCart";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import useShops from "../hooks/useShops";
+import { VscHeart } from "react-icons/vsc";
 
 const MainLayout = () => {
   const location = useLocation();
@@ -39,7 +40,7 @@ const MainLayout = () => {
     <div className="relative z-10">
       {noNavberFooter || <Navbar></Navbar>}
       {noNavberFooter || (
-        <div className="fixed top-4 right-28 z-20 p-3 ">
+        <div className="fixed top-2 right-36 z-20 p-3 ">
           <div className="drawer drawer-end">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
@@ -47,9 +48,12 @@ const MainLayout = () => {
               {/* Page content here */}
               <label htmlFor="my-drawer-4" className="drawer-button text-black">
                 <div className="cursor-pointer">
-                  <FaShoppingCart className="text-xl" />
-                  <div className="absolute badge-secondary flex justify-center items-center right-0 w-5 h-5 -top-4 left-4  rounded-full">
-                    {shops?.length}
+                  <p className=" bg-green-50 w-9 h-9 rounded-full flex justify-center items-center border-2">
+                    <FaShoppingCart className="text-xl text-primary" />
+                  </p>
+
+                  <div className="absolute bg-green-800 text-white flex justify-center items-center right-0 w-5 h-5 -top-4 left-6  rounded-full">
+                    {shops?.length || 0}
                   </div>
                 </div>
               </label>

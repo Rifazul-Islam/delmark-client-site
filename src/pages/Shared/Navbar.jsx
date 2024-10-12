@@ -9,6 +9,8 @@ import Check from "./Check";
 import useAdmin from "../../hooks/useAdmin";
 import { CgProfile } from "react-icons/cg";
 import { div } from "framer-motion/client";
+import { VscHeart } from "react-icons/vsc";
+import useWishList from "../../hooks/useWishList";
 
 const Navbar = () => {
   const { userLogout, user } = useContext(AuthContext);
@@ -16,6 +18,7 @@ const Navbar = () => {
   const [isAdmin] = useAdmin();
   const [cart] = useCart();
   const [open, setOpen] = useState(false);
+  let [wishlist] = useWishList();
 
   const handlerLogout = () => {
     userLogout()
@@ -77,7 +80,7 @@ const Navbar = () => {
 
   return (
     <div className="pb-[72px] font-poppins  font-semibold text-primary">
-      <div className="navbar bg-base-100 shadow-2xl  mx-auto fixed z-20  ">
+      <div className="navbar bg-base-100 shadow-lg  mx-auto fixed z-20  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -113,6 +116,16 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <Link
+            to="/wishlist"
+            className="mx-4 mr-5 relative mt-3 bg-green-50 w-9 h-9 rounded-full flex justify-center items-center border-2"
+          >
+            <VscHeart className="text-xl" />
+
+            <div className="absolute bg-green-800 text-white flex justify-center items-center right-0 w-5 h-5 -top-4 left-6  rounded-full">
+              {wishlist?.length}
+            </div>
+          </Link>
           {user ? (
             <>
               <div

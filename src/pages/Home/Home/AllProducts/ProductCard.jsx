@@ -15,25 +15,56 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useShops from "../../../../hooks/useShops";
 import Swal from "sweetalert2";
+import useWishList from "../../../../hooks/useWishList";
 
 const ProductCard = ({ product, setModelId, reviewData }) => {
   const { name, image, price, _id, category, description } = product;
   const [open, setOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [check, setCheck] = useState();
   const [counter, setCounter] = useState(1);
   const [wished, setWished] = useState(false);
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const [, refetch] = useShops();
+  const [shops, refetch] = useShops();
   const navigate = useNavigate();
   const location = useLocation();
-  const addToCart = (id) => {
-    toast.success("Product cart from here", { autoClose: 500 });
-    // console.log(id);
-  };
-  const handlerWishList = (wishlistId) => {
-    toast.success("WishList Cart add here ");
-    // console.log(wishlistId);
+  let [, refetched] = useWishList();
+  // WishList Handler
+  const handlerWishList = (product) => {
+    if (user && user?.email) {
+      const wishListInfo = {
+        email: user?.email,
+        menuId: _id,
+        wishlist: true,
+        name,
+        price,
+        image,
+      };
+
+      axiosSecure.post("/wishlist", wishListInfo).then((res) => {
+        if (res.data.insertedId) {
+          toast.success(`${name}  Add WishList`, {
+            autoClose: 500,
+          });
+          refetched();
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "You are Not Login?",
+        text: "Please Login First then Add to Cart",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
   };
   // console.log(wished);
 
@@ -52,7 +83,9 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
 
       axiosSecure.post("/shops", productInfo).then((res) => {
         if (res.data.insertedId) {
-          toast.success(`${reviewData?.name} Shopping Completed`);
+          toast.success(`${reviewData?.name} Shopping Completed`, {
+            autoClose: 500,
+          });
           refetch();
         }
       });
@@ -73,6 +106,12 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
     }
   };
 
+  const addToCart = (productId) => {
+    const checked = shops?.find((item) => item.menuId === productId);
+    refetch();
+    // console.log(checked, productId, shops);
+    setCheck(checked);
+  };
   // ============ Functionality  End Point =========
 
   return (
@@ -86,28 +125,19 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
             <div className="space-y-3">
               {isHovered ? (
                 <>
-                  <button
-                    className={` tooltip  cursor-pointer w-8 h-8 rounded-full flex justify-center items-center ${
-                      isHovered
-                        ? "bg-yellow-600 text-white pl-1.5"
-                        : "bg-white  hover:bg-primary hover:text-white "
-                    }`}
-                  >
+                  <button className=" tooltip  cursor-pointer w-8 h-8 rounded-full flex justify-center items-center bg-yellow-600 text-white pl-1.5 ">
                     <span className="tooltiptext">Alredy Add To Cart </span>
-                    <LuShoppingCart />
+                    <Link to="dashboard/cart">
+                      <LuShoppingCart />
+                    </Link>
                   </button>
                 </>
               ) : (
-                <button
-                  className={`pl-1.5 tooltip cursor-pointer w-8 h-8 rounded-full flex justify-center items-center ${
-                    isHovered
-                      ? "bg-yellow-600 text-white"
-                      : "bg-white  hover:bg-primary hover:text-white "
-                  }`}
-                >
-                  <span className="tooltiptext">Please Add To Cart </span>
+                <button className="pl-1.5 tooltip cursor-pointer w-8 h-8 rounded-full flex justify-center items-center bg-white  hover:bg-primary hover:text-white">
+                  <span className="tooltiptext">Add To Cart </span>
                   <LuShoppingCart
                     onClick={() => {
+                      handlerAddToCart(product);
                       addToCart(_id);
                       setIsHovered(true);
                     }}
@@ -241,7 +271,7 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
               >
                 <VscHeart
                   onClick={() => {
-                    handlerWishList(_id);
+                    handlerWishList(product);
                     setWished(true);
                   }}
                 />

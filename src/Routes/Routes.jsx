@@ -23,6 +23,7 @@ import UserDashboard from "../pages/Dashboard/UserDashboard/UserDashboard";
 import Shop from "../pages/Home/Home/AllProducts/Shop";
 import ShopCategory from "../pages/Home/Home/AllProducts/ShopCategory";
 import ShopDetails from "../pages/Home/Home/AllProducts/ShopDetails";
+import WishList from "../pages/Dashboard/WishList/WishList";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
         element: <Check />,
       },
       {
+        path: "/wishlist",
+        element: <WishList />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -97,6 +102,7 @@ const router = createBrowserRouter([
         path: "cart",
         element: <Cart></Cart>,
       },
+
       {
         path: "payment",
         element: <Payment />,
