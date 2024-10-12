@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import useShops from "../../../hooks/useShops";
 import { motion } from "framer-motion";
-import { FiShoppingCart, FiTrash2, FiMinus, FiPlus } from "react-icons/fi";
+import { FiTrash2, FiMinus, FiPlus } from "react-icons/fi";
 import { toast } from "react-toastify";
 
 const Cart = () => {
   const [shops, refetch] = useShops();
-  const price = shops?.reduce((pro, current) => pro + current.price, 0);
-  const totalPrice = price?.toFixed(2);
   const axiosSecure = useAxiosSecure();
   const [currentQuantity, setCurrentQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   // Qunatity Increment and Decrement Function Use Start Poin ========
   // Increament Function
@@ -94,13 +93,27 @@ const Cart = () => {
     });
   };
 
+  // Total Price Get
+
+  useEffect(() => {
+    const price = shops?.reduce(
+      (pro, current) => pro + current?.price * current?.quantity,
+      0
+    );
+
+    setTotalPrice(price?.toFixed(2));
+  }, [shops, currentQuantity]);
+
   return (
     <div>
       <div className="flex justify-between">
         <h2 className="text-2xl font-semibold">
           Total Items : {shops?.length}
         </h2>
-        <h2 className="text-2xl font-semibold"> Total Price : {totalPrice} </h2>
+        <h2 className="text-2xl font-semibold">
+          {" "}
+          Total Price : {totalPrice || 0}{" "}
+        </h2>
         {shops?.length ? (
           <Link to="/dashboard/payment">
             <button className="text-lg btn bg-accent px-8 text-white">

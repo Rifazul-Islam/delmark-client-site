@@ -8,6 +8,8 @@ import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import useShops from "../../../hooks/useShops";
+import { motion } from "framer-motion";
+import { FiShoppingCart, FiTrash2 } from "react-icons/fi";
 
 const WishList = () => {
   const [wishlist, refetched] = useWishList();
@@ -83,14 +85,14 @@ const WishList = () => {
   return (
     <div className="my-4">
       <div className="">
-        <h2 className="text-3xl font-semibold font-poppins "> WishList </h2>
+        <h2 className="text-4xl font-semibold font-serif my-7"> Wish-List </h2>
       </div>
 
       {/* Table Use  */}
       <div className="overflow-x-auto mb-20">
         <table className="table border mt-6">
           <thead className="rounded-lg">
-            <tr className="text-lg bg-primary text-white">
+            <tr className="text-lg bg-green-200 text-green-800 space-x-8 text-center">
               <th>#</th>
               <th>image</th>
               <th>Name</th>
@@ -99,136 +101,53 @@ const WishList = () => {
               <th>Save </th>
             </tr>
           </thead>
-          <tbody>
-            {wishlist.map((item, indx) => (
-              <tr key={item._id}>
-                <th>
-                  <label>{indx + 1}</label>
-                </th>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src={item.image}
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
+          <tbody className="text-center">
+            {wishlist?.map((item, index) => (
+              <motion.tr
+                key={item._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className={index % 2 === 0 ? "bg-green-50" : "bg-white"}
+              >
+                <td> {index + 1} </td>
+                <td className="py-4 px-4">
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-green-300"
+                    />
                   </div>
                 </td>
                 <td>{item?.name}</td>
-                <td> {item?.price} </td>
-                <th>
+                <td className="py-4 px-4 text-green-700">
+                  ${item?.price.toFixed(2)}
+                </td>
+
+                <td className="py-4 px-4">
                   <button
                     onClick={() => handlerDelete(item?._id)}
-                    className="btn btn-ghost btn-lg text-red-700 text-lg"
+                    className="btn btn-sm bg-red-500 text-white hover:bg-accent"
                   >
-                    <FaTrashAlt></FaTrashAlt>
+                    Remove X
                   </button>
-                </th>
+                </td>
 
                 <td>
                   <button
                     onClick={() => handlerAddToCart(item)}
-                    className="btn  bg-primary text-white hover:bg-accent"
+                    className="btn btn-sm bg-green-500 text-white hover:bg-accent"
                   >
                     Add To Cart
                   </button>
                 </td>
-              </tr>
+              </motion.tr>
             ))}
           </tbody>
         </table>
       </div>
     </div>
-    // <div className="min-h-screen bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center p-4">
-    //   <div className="bg-white rounded-lg shadow-2xl p-8 w-full max-w-4xl">
-    //     <h2 className="text-3xl font-bold mb-6 text-center text-green-800">
-    //       Your Eco-Friendly Cart
-    //     </h2>
-    //     <div className="overflow-x-auto">
-    //       <table className="w-full">
-    //         <thead>
-    //           <tr className="bg-green-200 text-green-800">
-    //             <th className="py-3 px-4 text-left rounded-tl-lg">Product</th>
-    //             <th className="py-3 px-4 text-left">Price</th>
-    //             <th className="py-3 px-4 text-left">Quantity</th>
-    //             <th className="py-3 px-4 text-left rounded-tr-lg">Actions</th>
-    //           </tr>
-    //         </thead>
-    //         <tbody>
-    //           {wishlist.map((item, index) => (
-    //             <motion.tr
-    //               key={item.id}
-    //               initial={{ opacity: 0, y: 20 }}
-    //               animate={{ opacity: 1, y: 0 }}
-    //               exit={{ opacity: 0, y: -20 }}
-    //               className={index % 2 === 0 ? "bg-green-50" : "bg-white"}
-    //             >
-    //               <td className="py-4 px-4">
-    //                 <div className="flex items-center space-x-4">
-    //                   <img
-    //                     src={item.image}
-    //                     alt={item.name}
-    //                     className="w-16 h-16 rounded-full object-cover border-2 border-green-300"
-    //                   />
-    //                   <span className="font-semibold text-green-800">
-    //                     {item.name}
-    //                   </span>
-    //                 </div>
-    //               </td>
-    //               <td className="py-4 px-4 text-green-700">
-    //                 ${item.price.toFixed(2)}
-    //               </td>
-    //               <td className="py-4 px-4">
-    //                 <div className="flex items-center space-x-2">
-    //                   <button
-    //                     onClick={() => updateQuantity(item.id, -1)}
-    //                     className="p-1 rounded-full bg-green-200 text-green-800 hover:bg-green-300 transition-colors"
-    //                   >
-    //                     <FiMinus />
-    //                   </button>
-    //                   <span className="font-bold text-green-800 w-8 text-center">
-    //                     0
-    //                   </span>
-    //                   <button
-    //                     onClick={() => updateQuantity(item.id, 1)}
-    //                     className="p-1 rounded-full bg-green-200 text-green-800 hover:bg-green-300 transition-colors"
-    //                   >
-    //                     <FiPlus />
-    //                   </button>
-    //                 </div>
-    //               </td>
-    //               <td className="py-4 px-4">
-    //                 <button
-    //                   onClick={() => updateQuantity(item.id, -item.quantity)}
-    //                   className="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition-colors"
-    //                 >
-    //                   <FiTrash2 />
-    //                 </button>
-    //               </td>
-    //             </motion.tr>
-    //           ))}
-    //         </tbody>
-    //       </table>
-    //     </div>
-    //     <div className="mt-8 flex items-center justify-between">
-    //       <div>
-    //         {/* <p className="text-xl font-semibold text-green-800">
-    //           Total Items: {totalItems}
-    //         </p> */}
-    //         <p className="text-2xl font-bold text-green-900">
-    //           {/* ${totalPrice.toFixed(2)} */}
-    //         </p>
-    //       </div>
-    //       <button className="px-6 py-3 bg-green-600 text-white rounded-full text-lg font-semibold hover:bg-green-700 transition-colors flex items-center space-x-2 shadow-lg">
-    //         <FiShoppingCart />
-    //         <span>Checkout</span>
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
