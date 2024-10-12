@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div className="flex lg:flex-row flex-col mt-3 mb-1 pl-1 pr-3">
       {/* dashboard site bar */}
-      <div className="lg:w-60 bg-gray-50 min-h-screen  shadow-2xl rounded-lg p-4 border">
+      <div className="lg:w-60 bg-white rounded-lg shadow-2xl min-h-screen p-4 border">
         {isAdmin ? (
           <h2 className="text-xl font-semibold mb-4 pl-5">Admin Dashboard</h2>
         ) : (
@@ -119,7 +119,7 @@ const Dashboard = () => {
         </ul>
       </div>
       {/* dashboard Outlet  */}
-      <div className="flex-1 border-[1px] rounded-md mx-4 p-4 lg:mt-0 mt-8 shadow-lg  bg-gray-50">
+      <div className="flex-1 border-[1px]  mx-4 p-4 lg:mt-0 mt-8 bg-white rounded-lg shadow-2xl">
         <Outlet></Outlet>
       </div>
     </div>

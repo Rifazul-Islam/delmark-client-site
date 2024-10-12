@@ -123,7 +123,6 @@ const Check = () => {
                         disabled
                         onClick={() => {
                           handlarDecrement(item);
-                          handlarDecremen(item);
                         }}
                       >
                         <FiMinus />

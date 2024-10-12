@@ -30,6 +30,7 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
   const navigate = useNavigate();
   const location = useLocation();
   let [, refetched] = useWishList();
+
   // WishList Handler
   const handlerWishList = (product) => {
     if (user && user?.email) {
@@ -250,9 +251,11 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
                         </div>
                       </div>
                       <div className="flex mt-5">
-                        <p className="flex items-center gap-3">
-                          <VscHeart /> Add Wishlist
-                        </p>
+                        <Link to="/wishlist">
+                          <p className="flex items-center gap-3">
+                            <VscHeart /> Add Wishlist
+                          </p>
+                        </Link>
                         <p className="flex items-center gap-3 pl-4">
                           <FaClover /> Ask a question
                         </p>
