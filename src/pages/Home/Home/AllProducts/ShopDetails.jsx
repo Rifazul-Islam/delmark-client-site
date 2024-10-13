@@ -37,7 +37,7 @@ const ShopDetails = () => {
         name,
         image,
         price,
-        quantity,
+        quantity: quantity + 1,
       };
 
       axiosSecure.post("/shops", productInfo).then((res) => {

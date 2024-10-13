@@ -20,15 +20,18 @@ const WishList = () => {
   const { user } = useAuth();
   // ======= Shoping cart Add ======
   const handlerAddToCart = (reviewData) => {
+    // let quantities = reviewData?.quantity + 1;
+    // console.log(quantities);
     if (user && user?.email) {
       const productInfo = {
         menuId: reviewData?._id,
         name: reviewData?.name,
         email: reviewData?.email,
         price: reviewData?.price,
-        quantity: reviewData?.quantity,
+        quantity: reviewData?.quantity + 1,
         image: reviewData?.image,
       };
+      console.log(productInfo);
 
       axiosSecure.post("/shops", productInfo).then((res) => {
         if (res.data.insertedId) {

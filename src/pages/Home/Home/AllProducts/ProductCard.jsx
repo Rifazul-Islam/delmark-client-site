@@ -18,7 +18,7 @@ import Swal from "sweetalert2";
 import useWishList from "../../../../hooks/useWishList";
 
 const ProductCard = ({ product, setModelId, reviewData }) => {
-  const { name, image, price, _id, category, description } = product;
+  const { name, image, price, _id, category, description, quantity } = product;
   const [open, setOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [check, setCheck] = useState();
@@ -41,6 +41,7 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
         name,
         price,
         image,
+        quantity,
       };
 
       axiosSecure.post("/wishlist", wishListInfo).then((res) => {
@@ -78,7 +79,7 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
         name: reviewData?.name,
         email: user?.email,
         price: reviewData?.price,
-        quantity: reviewData?.quantity,
+        quantity: reviewData?.quantity + 1,
         image: reviewData?.image,
       };
 
@@ -116,7 +117,7 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
   // ============ Functionality  End Point =========
 
   return (
-    <div className="card  p-1.5 card-compact bg-base-100 shadow-xl ">
+    <div className="card  p-1.5 card-compact bg-base-100 shadow-xl border-[1px] ">
       <figure className="cursor-pointer relative group">
         <img className="w-full h-72 " src={image} alt="" />
 

@@ -9,14 +9,16 @@ import { useNavigate } from "react-router-dom";
 import { div } from "framer-motion/client";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import useShops from "../../../hooks/useShops";
 
 const CheckOutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
   const axiosSecure = useAxiosSecure();
-  const [cart, refetch] = useCart();
-  const totalPrice = cart?.reduce((pre, current) => pre + current.price, 0);
+  // const [cart, refetch] = useCart();
+  const [shops, refetch] = useShops();
+  const totalPrice = shops?.reduce((pre, current) => pre + current.price, 0);
   const [clientSecret, setClientSecret] = useState("");
   const { user } = useAuth();
   const [transectionId, setTransectionId] = useState("");
@@ -84,8 +86,8 @@ const CheckOutForm = () => {
           price: totalPrice,
           transectionId: paymentIntent.id,
           date: new Date(), // UTC Date convert . use moment.js to
-          cartIds: cart.map((item) => item._id),
-          menuItemIds: cart.map((item) => item.menuId),
+          cartIds: shops.map((item) => item._id),
+          menuItemIds: shops.map((item) => item.menuId),
           status: "padding",
         };
 
