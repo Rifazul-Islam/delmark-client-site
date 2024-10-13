@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import "./Shop.css";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import useCategory from "../../../../hooks/useCategory";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import AllProducts from "./AllProducts";
+import "./Shop.css";
+import { CodeSquare } from "lucide-react";
 const Shop = () => {
+  const [category] = useCategory();
   const [products, setProducts] = useState([]);
   const axiosSecure = useAxiosSecure();
   const [count, setCount] = useState();
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
-
+  const [sortField, setSortField] = useState("price");
+  const [sortOrder, setSortOrder] = useState("asc"); // asc or desc
   const numberOfPages = Math.ceil(21 / itemsPerPage);
   const pages = [...Array(numberOfPages).keys()];
-
-  // if (count > 0 && itemsPerPage > 0) {
-  //   const numberOfPages = Math.ceil(count / itemsPerPage);
-  //   const pages = [...Array(numberOfPages).keys()];
-
-  //   setPages(pages);
-  // } else {
-  //   console.log("Data Nai boss");
-  // }
 
   const handlerPrevPage = () => {
     if (currentPage > 0) {
@@ -41,7 +34,9 @@ const Shop = () => {
   //  all Product Get
   useEffect(() => {
     axiosSecure
-      .get(`/allCategory/pagination?page=${currentPage}&size=${itemsPerPage}`)
+      .get(
+        `/allCategory/pagination?page=${currentPage}&size=${itemsPerPage}&sortField=${sortField}&sortOrder=${sortOrder}`
+      )
       .then((res) => {
         setProducts(res?.data);
       });
@@ -54,33 +49,6 @@ const Shop = () => {
     });
   }, [axiosSecure]);
 
-  // const { data: counts } = useQuery({
-  //   queryKey: ["count"],
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get("/shopCount");
-
-  //     return res.data.count;
-  //   },
-  // });
-
-  // if (counts) {
-  //   setCount(counts);
-  // }
-  // const { data: reviewDataed } = useQuery({
-  //   queryKey: ["reviewsess", modelId],
-  //   enabled: !!modelId,
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get(`/category/${modelId}`);
-  //     return res?.data;
-  //   },
-  // });
-
-  // console.log("shope card", applicationId);
-
-  // console.log(products);
-
-  const [category] = useCategory();
-
   const categories = [
     "All Products Show",
     "Fish & Original",
@@ -90,11 +58,11 @@ const Shop = () => {
     "Milk",
   ];
 
-  const fish = category.filter((item) => item.category === "Fish");
-  const vegetables = category.filter((item) => item.category === "Vegetables");
-  const meat = category.filter((item) => item.category === "Meat");
-  const fruits = category.filter((item) => item.category === "Fruits");
-  const milk = category.filter((item) => item.category === "Milk");
+  const fish = category?.filter((item) => item.category === "Fish");
+  const vegetables = category?.filter((item) => item.category === "Vegetables");
+  const meat = category?.filter((item) => item.category === "Meat");
+  const fruits = category?.filter((item) => item.category === "Fruits");
+  const milk = category?.filter((item) => item.category === "Milk");
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -104,101 +72,139 @@ const Shop = () => {
 
   // console.log("Selected tab:", selectedIndex);
 
+  // I am Sorting sistem Emaplement Tried
+
+  const handleSortChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value === "Low") {
+      setSortField("price");
+      setSortOrder("asc");
+    } else if (value === "High") {
+      setSortField("price");
+      setSortOrder("desc");
+    } else {
+      setSortField("price");
+      setSortOrder("asc");
+    }
+  };
+
   return (
     <div className={`${selectedIndex > 0 && "mb-16"}`}>
-      <h2 className="text-2xl font-semibold pl-4 font-serif mt-12"> Shop</h2>
+      <h2 className="text-3xl font-semibold  font-serif mt-12"> Shop</h2>
+      <div className="flex justify-between items-center">
+        <div>
+          <h2 className="text-2xl font-semibold  font-serif ">Price Filter</h2>
+        </div>
+        <div className="flex justify-center items-center gap-3">
+          {/* Sorting Form */}
+          <form onSubmit={handleSortChange}>
+            <label className="form-control w-full">
+              <select
+                defaultValue="default"
+                className="select select-bordered w-full"
+                onChange={handleSortChange}
+              >
+                <option disabled value="default">
+                  Select Sorting Order
+                </option>
+                <option value="Low">Low to High</option>
+                <option value="High">High to Low</option>
+              </select>
+            </label>
+          </form>
+        </div>
+      </div>
 
       <div>
-        <div>
-          <h2 className="text-black mt-2 pl-3  font-serif font-bold text-xl">
-            Categories
-          </h2>
+        <h2 className="text-black mt-2  font-serif font-bold text-xl">
+          Categories
+        </h2>
 
-          <div>
-            {/* React taps used */}
-            <Tabs
-              selectedIndex={selectedIndex}
-              onSelect={handleSelect}
-              className="grid md:grid-cols-5"
-            >
-              <TabList className="md:col-span-1 cursor-pointer">
-                <TabList className="md:border-t-[2px] md:border-b-[2px] border-green-600 p-2 space-y-1">
-                  {categories?.map((item, index) => {
-                    return (
-                      <Tab
-                        key={index}
-                        className={`block 
+        <div>
+          {/* React taps used */}
+          <Tabs
+            selectedIndex={selectedIndex}
+            onSelect={handleSelect}
+            className="grid md:grid-cols-5"
+          >
+            <TabList className="md:col-span-1 cursor-pointer">
+              <TabList className="md:border-t-[2px] md:border-b-[2px] border-green-600 p-2 space-y-1">
+                {categories?.map((item, index) => {
+                  return (
+                    <Tab
+                      key={index}
+                      className={`block 
                           ${
                             selectedIndex === index
-                              ? " text-green-600"
+                              ? " text-[#bb8506]"
                               : "bg-white"
                           }
                           text-md font-serif font-medium `}
-                      >
-                        {item}
-                      </Tab>
-                    );
-                  })}
-                </TabList>
+                    >
+                      {item}
+                    </Tab>
+                  );
+                })}
               </TabList>
+            </TabList>
 
-              <div className="md:col-span-4">
-                {/* All Product Show  */}
-                <TabPanel>
-                  {/* grid system  */}
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
-                    {products?.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                  </div>
-                </TabPanel>
+            <div className="md:col-span-4">
+              {/* All Product Show  */}
+              <TabPanel>
+                {/* grid system  */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
+                  {products?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
+              </TabPanel>
 
-                {/* Fish & Original  */}
-                <TabPanel>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
-                    {fish?.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                  </div>
-                </TabPanel>
+              {/* Fish & Original  */}
+              <TabPanel>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
+                  {fish?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
+              </TabPanel>
 
-                {/* Vegetables  */}
-                <TabPanel>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
-                    {vegetables?.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                  </div>
-                </TabPanel>
+              {/* Vegetables  */}
+              <TabPanel>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
+                  {vegetables?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
+              </TabPanel>
 
-                {/*Meat & Dairy  */}
-                <TabPanel>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
-                    {meat?.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                  </div>
-                </TabPanel>
-                {/*Fruits Product */}
-                <TabPanel>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
-                    {fruits?.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                  </div>
-                </TabPanel>
+              {/*Meat & Dairy  */}
+              <TabPanel>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
+                  {meat?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
+              </TabPanel>
+              {/*Fruits Product */}
+              <TabPanel>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
+                  {fruits?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
+              </TabPanel>
 
-                {/*Milk Product */}
-                <TabPanel>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
-                    {milk?.map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                  </div>
-                </TabPanel>
-              </div>
-            </Tabs>
-          </div>
+              {/*Milk Product */}
+              <TabPanel>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2  px-2">
+                  {milk?.map((product) => (
+                    <ProductCard key={product._id} product={product} />
+                  ))}
+                </div>
+              </TabPanel>
+            </div>
+          </Tabs>
         </div>
       </div>
 

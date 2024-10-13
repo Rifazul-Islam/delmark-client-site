@@ -1,0 +1,19 @@
+/* Custom scrollbar for the sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #d1ebc5; /* Light purple color for the track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #008640; /* Dark purple color for the thumb */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Set to 'thin' for a smaller scrollbar */
+  scrollbar-color: #008640 #d7ebc5; /* Thumb color and track color */
+}
