@@ -2,7 +2,7 @@ import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useState } from "react";
-import { motion } from "framer-motion";
+
 import {
   FaFacebook,
   FaHandRock,
@@ -66,24 +66,11 @@ const ShopDetails = () => {
     }
   };
 
-  // Handle mouse move
-  // const handleMouseMove = (e) => {
-  //   const { left, top, width, height } =
-  //     e.currentTarget.getBoundingClientRect();
-  //   const x = ((e.pageX - left) / width) * 200;
-  //   const y = ((e.pageY - top) / height) * 200;
-  //   setBackgroundPosition(`${x}% ${y}%`);
-  // };
-  const [isHovered, setIsHovered] = useState(false);
-  // Handle mouse leave
-  // const handleMouseLeave = () => {
-  //   setBackgroundPosition("center");
-  // };
   return (
     <div>
       <div className="flex flex-col md:flex-row  gap-6 my-16 relative">
         <div
-          className="w-1/2 "
+          className="w-1/2"
           // onMouseEnter={() => setIsHovered(true)}
           // onMouseLeave={() => setIsHovered(false)}
         >
@@ -91,7 +78,7 @@ const ShopDetails = () => {
         </div>
         {/* {isHovered && (
           <div className="absolute right-0 w-1/2 z-30">
-            <InnerImageZoom src={image} zoomSrc={image} width={400} />
+            <InnerImageZoom src={image} zoomSrc={image} className="h-[500px]" />
           </div>
         )} */}
         <div className="md:w-1/2 w-full px-3 md:px-0">

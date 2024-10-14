@@ -6,7 +6,11 @@ import useCategory from "../../../../hooks/useCategory";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./Shop.css";
-import { CodeSquare } from "lucide-react";
+
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+import { Link } from "react-router-dom";
+
 const Shop = () => {
   const [category] = useCategory();
   const [products, setProducts] = useState([]);
@@ -87,10 +91,6 @@ const Shop = () => {
     setSelectedIndex(index);
   };
 
-  // console.log("Selected tab:", selectedIndex);
-
-  // I am Sorting sistem Emaplement Tried
-
   const handleSortChange = (e) => {
     e.preventDefault();
     const value = e.target.value;
@@ -150,8 +150,8 @@ const Shop = () => {
             onSelect={handleSelect}
             className="grid md:grid-cols-5"
           >
-            <TabList className="md:col-span-1 cursor-pointer">
-              <TabList className="md:border-t-[2px] md:border-b-[2px] border-green-600 p-2 space-y-1">
+            <TabList className="md:col-span-1 ">
+              <TabList className="md:border-t-[2px] cursor-pointer  border-green-600 p-2 space-y-1">
                 {categories?.map((item, index) => {
                   return (
                     <Tab
@@ -169,6 +169,72 @@ const Shop = () => {
                   );
                 })}
               </TabList>
+
+              {/* Branding Part */}
+              <div className="mt-4">
+                <h3 className="text-lg font-poppins font-semibold">
+                  Popular Brands
+                </h3>
+
+                <div className="mt-1.5 space-y-3">
+                  <button className="btn btn-outline btn-sm">
+                    Original Vagitable
+                  </button>
+                  <button className="btn btn-outline btn-sm ml-2">Frash</button>
+                  <button className="btn btn-outline btn-sm">Fresh Food</button>
+
+                  <button className="btn btn-outline btn-sm ml-2">
+                    Original Milk
+                  </button>
+                  <button className="btn btn-outline btn-sm">
+                    Original Jusce
+                  </button>
+                </div>
+              </div>
+
+              {/* Top read Product  */}
+
+              <div>
+                <h3 className="text-lg font-poppins font-semibold my-2.5">
+                  Top buy Products
+                </h3>
+                <div>
+                  {vegetables?.slice(0, 3).map((item) => (
+                    <div className=" pt-2" key={item?._id}>
+                      <Link to={`/shopDetails/${item?._id}`}>
+                        <div className="flex gap-3 border p-1 rounded-lg">
+                          <img
+                            src={item?.image}
+                            alt=""
+                            className="w-16 h-16 rounded-lg"
+                          />
+                          <div className="space-y-1">
+                            <h3 className="text-sm font-inter font-medium ">
+                              {item?.name?.length > 20
+                                ? `${item?.name.slice(0, 20)}`
+                                : `${item?.name}`}
+                            </h3>
+                            <p className="flex items-center gap-2">
+                              <span>
+                                <Rating
+                                  style={{ maxWidth: 50 }}
+                                  value={item?.reviews}
+                                  readOnly
+                                />
+                              </span>
+                              <span className="text-[11px] ">
+                                ({item?.reviews} Views)
+                              </span>
+                            </p>
+
+                            <p className="text-[11px] "> ${item?.price}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </TabList>
 
             <div className="md:col-span-4">

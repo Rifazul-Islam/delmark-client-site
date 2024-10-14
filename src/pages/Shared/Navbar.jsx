@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaMapMarkedAlt, FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
 import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
 import Check from "./Check";
@@ -106,9 +106,9 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <a className="text-2xl font-bold text-blue-500 ml-12 ">
-            <span className="text-yellow-400">Dal</span>Mark
-          </a>
+          <h2 className="text-[22px] font-serif  font-bold  pl-16 flex gap-3 items-center text-primary">
+            <FaMapMarkedAlt /> DelMark
+          </h2>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 S text-[16px] space-x-4">
