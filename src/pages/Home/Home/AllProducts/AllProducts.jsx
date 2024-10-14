@@ -3,9 +3,11 @@ import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublice from "../../../../hooks/useAxiosPublice";
+import useShops from "../../../../hooks/useShops";
 
 const AllProducts = ({ producted }) => {
   const [modelId, setModelId] = useState(null);
+  const [currentId, setCurrentId] = useState(null);
   const axiosPublic = useAxiosPublice();
   const { data: reviewData } = useQuery({
     queryKey: ["reviewsed", modelId],
@@ -15,6 +17,7 @@ const AllProducts = ({ producted }) => {
       return res?.data;
     },
   });
+
   return (
     <div className="my-16">
       {/* Product Map Area */}
@@ -28,6 +31,8 @@ const AllProducts = ({ producted }) => {
                 product={product}
                 setModelId={setModelId}
                 reviewData={reviewData}
+                setCurrentId={setCurrentId}
+                currentId={currentId}
               />
             ))}
           </>
@@ -39,6 +44,8 @@ const AllProducts = ({ producted }) => {
                 product={product}
                 setModelId={setModelId}
                 reviewData={reviewData}
+                setCurrentId={setCurrentId}
+                currentId={currentId}
               />
             ))}
           </>

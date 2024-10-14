@@ -16,9 +16,16 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [sortField, setSortField] = useState("price");
   const [sortOrder, setSortOrder] = useState("asc"); // asc or desc
-  const numberOfPages = Math.ceil(21 / itemsPerPage);
+
+  let numberOfPages;
+  if (count) {
+    numberOfPages = Math.ceil(count / itemsPerPage);
+  } else {
+    console.log("data Nai");
+  }
   const pages = [...Array(numberOfPages).keys()];
 
+  console.log(count, numberOfPages);
   const handlerPrevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
@@ -40,7 +47,7 @@ const Shop = () => {
       .then((res) => {
         setProducts(res?.data);
       });
-  }, [currentPage, itemsPerPage]);
+  }, [currentPage, itemsPerPage, sortField, sortOrder]);
 
   // Count Length get
   useEffect(() => {
@@ -57,6 +64,16 @@ const Shop = () => {
     "Fruits",
     "Milk",
   ];
+  //  one sistem data load  my need this
+  useEffect(() => {
+    axiosSecure
+      .get(
+        `/allCategory/pagination?page=${currentPage}&size=${itemsPerPage}&sortField=${sortField}&sortOrder=${sortOrder}`
+      )
+      .then((res) => {
+        setProducts(res?.data);
+      });
+  }, [currentPage, itemsPerPage, sortField, sortOrder]);
 
   const fish = category?.filter((item) => item.category === "Fish");
   const vegetables = category?.filter((item) => item.category === "Vegetables");
@@ -89,6 +106,7 @@ const Shop = () => {
     }
   };
 
+  // console.log(products);
   return (
     <div className={`${selectedIndex > 0 && "mb-16"}`}>
       <h2 className="text-3xl font-semibold  font-serif mt-12"> Shop</h2>
@@ -98,7 +116,10 @@ const Shop = () => {
         </div>
         <div className="flex justify-center items-center gap-3">
           {/* Sorting Form */}
-          <form onSubmit={handleSortChange}>
+          <form
+            className="w-72 border-[1px] border-green-600 rounded-lg"
+            onSubmit={handleSortChange}
+          >
             <label className="form-control w-full">
               <select
                 defaultValue="default"
@@ -110,6 +131,7 @@ const Shop = () => {
                 </option>
                 <option value="Low">Low to High</option>
                 <option value="High">High to Low</option>
+                <option value="Normal">Normal</option>
               </select>
             </label>
           </form>
@@ -134,7 +156,7 @@ const Shop = () => {
                   return (
                     <Tab
                       key={index}
-                      className={`block 
+                      className={`block
                           ${
                             selectedIndex === index
                               ? " text-[#bb8506]"

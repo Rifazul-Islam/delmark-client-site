@@ -20,13 +20,11 @@ import useWishList from "../../../../hooks/useWishList";
 const ProductCard = ({ product, setModelId, reviewData }) => {
   const { name, image, price, _id, category, description, quantity } = product;
   const [open, setOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [check, setCheck] = useState();
+  const [shops, refetch] = useShops();
   const [counter, setCounter] = useState(1);
   const [wished, setWished] = useState(false);
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const [shops, refetch] = useShops();
   const navigate = useNavigate();
   const location = useLocation();
   let [, refetched] = useWishList();
@@ -108,14 +106,6 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
     }
   };
 
-  const addToCart = (productId) => {
-    const checked = shops?.find((item) => item.menuId === productId);
-    refetch();
-    // console.log(checked, productId, shops);
-    setCheck(checked);
-  };
-  // ============ Functionality  End Point =========
-
   return (
     <div className="card  p-1.5 card-compact bg-base-100 shadow-xl border-[1px] ">
       <figure className="cursor-pointer relative group">
@@ -125,25 +115,24 @@ const ProductCard = ({ product, setModelId, reviewData }) => {
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
           <div className="absolute top-12 left-6">
             <div className="space-y-3">
-              {isHovered ? (
-                <>
-                  <button className=" tooltip  cursor-pointer w-8 h-8 rounded-full flex justify-center items-center bg-yellow-600 text-white pl-1.5 ">
-                    <span className="tooltiptext">Alredy Add To Cart </span>
-                    <Link to="dashboard/cart">
-                      <LuShoppingCart />
-                    </Link>
-                  </button>
-                </>
+              {shops?.some((item) => item.menuId === _id) ? (
+                // If the product is already in the cart, show "Already Added" button
+                <button className="tooltip cursor-pointer w-8 h-8 rounded-full flex justify-center items-center bg-yellow-600 text-white pl-1.5">
+                  <span className="tooltiptext">Already Added To Cart</span>
+                  <Link to="dashboard/cart">
+                    <LuShoppingCart />
+                  </Link>
+                </button>
               ) : (
-                <button className="pl-1.5 tooltip cursor-pointer w-8 h-8 rounded-full flex justify-center items-center bg-white  hover:bg-primary hover:text-white">
-                  <span className="tooltiptext">Add To Cart </span>
-                  <LuShoppingCart
-                    onClick={() => {
-                      handlerAddToCart(product);
-                      addToCart(_id);
-                      setIsHovered(true);
-                    }}
-                  />
+                // If the product is not in the cart, show "Add to Cart" button
+                <button
+                  className="pl-1.5 tooltip cursor-pointer w-8 h-8 rounded-full flex justify-center items-center bg-white hover:bg-primary hover:text-white"
+                  onClick={() => {
+                    handlerAddToCart(product);
+                  }}
+                >
+                  <span className="tooltiptext">Add To Cart</span>
+                  <LuShoppingCart />
                 </button>
               )}
 
