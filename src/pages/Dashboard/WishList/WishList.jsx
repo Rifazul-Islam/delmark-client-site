@@ -1,6 +1,5 @@
 import React from "react";
 import useWishList from "../../../hooks/useWishList";
-import { FaTrashAlt } from "react-icons/fa";
 
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -9,7 +8,6 @@ import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import useShops from "../../../hooks/useShops";
 import { motion } from "framer-motion";
-import { FiShoppingCart, FiTrash2 } from "react-icons/fi";
 
 const WishList = () => {
   const [wishlist, refetched] = useWishList();

@@ -24,6 +24,7 @@ import Shop from "../pages/Home/Home/AllProducts/Shop";
 import ShopCategory from "../pages/Home/Home/AllProducts/ShopCategory";
 import ShopDetails from "../pages/Home/Home/AllProducts/ShopDetails";
 import WishList from "../pages/Dashboard/WishList/WishList";
+import OrderManage from "../pages/Dashboard/AdminDashboard/OrderManage/OrderManage";
 
 const router = createBrowserRouter([
   {
@@ -155,6 +156,11 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://dalmart-server-site.vercel.app/menu/${params.id}`),
+      },
+
+      {
+        path: "orderManage",
+        element: <OrderManage></OrderManage>,
       },
     ],
   },

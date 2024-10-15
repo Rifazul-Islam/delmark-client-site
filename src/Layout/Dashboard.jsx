@@ -21,7 +21,7 @@ const Dashboard = () => {
   const dashboardItems = (
     <>
       {isAdmin ? (
-        <div className="space-y-1">
+        <div className="space-y-3">
           <div>
             <h2 className="text-[19px] font-serif  font-bold  mb-3 flex gap-3 items-center text-primary">
               <FaMapMarkedAlt /> DelMark
@@ -57,9 +57,9 @@ const Dashboard = () => {
           <li>
             <NavLink
               className="flex items-center gap-2 "
-              to="/dashboard/bookings"
+              to="/dashboard/orderManage"
             >
-              <FaBook /> manage Booking
+              <FaBook /> Order manage
             </NavLink>
           </li>
 
@@ -74,10 +74,10 @@ const Dashboard = () => {
           </li>
         </div>
       ) : (
-        <>
+        <div className="space-y-3">
           <li>
             <NavLink
-              className="flex items-center gap-2 "
+              className="flex items-center gap-2 text-primary font-inter font-semibold"
               to="/dashboard/userHome"
             >
               <FaHome /> User Home
@@ -90,7 +90,7 @@ const Dashboard = () => {
               to="/dashboard/reservation"
             >
               <FaCalculator />
-              ReserVation
+              My Profile
             </NavLink>
           </li>
           <li>
@@ -117,13 +117,23 @@ const Dashboard = () => {
               Payment History
             </NavLink>
           </li>
-        </>
+
+          <li>
+            <NavLink
+              className="flex items-center gap-2 "
+              to="/dashboard/paymentHistory"
+            >
+              <FaAd />
+              Support
+            </NavLink>
+          </li>
+        </div>
       )}
 
       <div className="divider"> </div>
 
       {/* Share Link Menu */}
-      <>
+      <div className=" space-y-3">
         <li>
           <NavLink className="flex items-center gap-2 " to="/">
             <FaHome /> Home
@@ -139,27 +149,10 @@ const Dashboard = () => {
             <MdEmail /> Contact
           </NavLink>
         </li>
-      </>
+      </div>
     </>
   );
   return (
-    // <div className="flex lg:flex-row flex-col mt-3 mb-1 pl-1 pr-3">
-    //   {/* dashboard site bar */}
-    //   <div className="lg:w-60 bg-white rounded-lg shadow-2xl min-h-screen p-4 border">
-    //     {isAdmin ? (
-    //       <h2 className="text-xl font-semibold mb-4 pl-5">Admin Dashboard</h2>
-    //     ) : (
-    //       <h2 className="text-xl font-semibold mb-4 pl-5">User Dashboard</h2>
-    //     )}
-
-    //     <ul className="text-center mt-4 menu space-y-3">{dashboardItems}</ul>
-    //   </div>
-    //   {/* dashboard Outlet  */}
-    //   <div className="flex-1 border-[1px]  mx-4 p-4 lg:mt-0 mt-8 bg-white rounded-lg shadow-2xl">
-    //     <Outlet></Outlet>
-    //   </div>
-    // </div>
-
     <div className="bg-[#f5f5fb] w-max-[1400px]">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6">
         <div className="drawer drawer-start lg:hidden">
