@@ -1,5 +1,5 @@
 import usePayments from "../../../hooks/usePayments";
-
+import moment from "moment";
 const PaymentHistory = () => {
   const [payments, refetch] = usePayments();
   return (
@@ -24,7 +24,9 @@ const PaymentHistory = () => {
                 <th> {indx + 1} </th>
                 <td> {payment?.price} </td>
                 <td> {payment?.transectionId}</td>
-                <td className="text-blue-800"> 05-10-24</td>
+                <td className="text-blue-800">
+                  {moment(payment?.date).format("MM-DD-YYYY")}
+                </td>
                 <td className="text-purple-500"> {payment?.status} </td>
               </tr>
             ))}

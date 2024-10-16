@@ -10,6 +10,7 @@ import Test from "./Test/Test";
 import Delivery from "./Delivery/Delivery";
 import AllProducts from "./AllProducts/AllProducts";
 import TapProduct from "./AllProducts/TapProduct";
+import ForYouSection from "./ForYouSection/ForYouSection";
 
 const Home = () => {
   return (
@@ -21,6 +22,9 @@ const Home = () => {
       <Slider />
 
       {/* <Cegegori /> */}
+
+      <ForYouSection></ForYouSection>
+
       <MenuItems></MenuItems>
       <TapProduct></TapProduct>
       {/* <AllProducts></AllProducts> */}

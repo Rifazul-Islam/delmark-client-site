@@ -25,6 +25,7 @@ import ShopCategory from "../pages/Home/Home/AllProducts/ShopCategory";
 import ShopDetails from "../pages/Home/Home/AllProducts/ShopDetails";
 import WishList from "../pages/Dashboard/WishList/WishList";
 import OrderManage from "../pages/Dashboard/AdminDashboard/OrderManage/OrderManage";
+import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart></Cart>,
+      },
+      {
+        path: "MyProfile",
+        element: <MyProfile></MyProfile>,
       },
 
       {

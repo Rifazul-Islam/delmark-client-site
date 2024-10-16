@@ -4,6 +4,8 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 import moment from "moment";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
+import useCategory from "../../../../hooks/useCategory";
 const OrderManage = () => {
   const axiosSecure = useAxiosSecure();
 
@@ -15,6 +17,23 @@ const OrderManage = () => {
     },
   });
 
+  // // get the Cetagory
+  // const [category] = useCategory();
+
+  // useEffect(() => {
+  //   {
+  //     paymenteds?.map((item) => {
+  //       {
+  //         item?.menuItemIds?.map((items) => {
+  //           const checkeds = category?.filter((value) => value?._id === items);
+  //           console.log(checkeds[0]?.price);
+  //         });
+  //       }
+  //     });
+  //   }
+  // }, []);
+
+  // Status Update Handler
   const handleStatusChange = (id, itemValue) => {
     const updateInfo = {
       status: itemValue,
@@ -35,8 +54,8 @@ const OrderManage = () => {
           Order Management
         </h2>
       </div>
-      <div className="overflow-x-auto mb-20">
-        <table className="table border mt-6">
+      <div className=" mb-20">
+        <table className="table overflow-y-auto border mt-6">
           <thead className="rounded-lg">
             <tr className="text-lg bg-green-200 text-green-800 space-x-8 text-center">
               <th className="text-left">OrderId</th>

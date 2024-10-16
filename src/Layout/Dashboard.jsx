@@ -87,7 +87,7 @@ const Dashboard = () => {
           <li>
             <NavLink
               className="flex items-center gap-2 "
-              to="/dashboard/reservation"
+              to="/dashboard/MyProfile"
             >
               <FaCalculator />
               My Profile
@@ -176,7 +176,7 @@ const Dashboard = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 min-h-full bg-base-200 text-base-content">
+            <ul className="menu p-4 min-h-full w-72 bg-base-200 text-base-content">
               {dashboardItems}
             </ul>
           </div>
@@ -184,14 +184,6 @@ const Dashboard = () => {
 
         <div className="col-span-1 hidden md:grid border-[1px]  mx-4 p-4 lg:mt-0 mt-8 bg-white rounded-lg shadow-2xl">
           <div>
-            {/* <div>
-              <Link to="/" className={`${showLogo ? "block" : "hidden"}`}>
-                <img src={logo} className="w-3/4 h-12" alt="" />
-              </Link>
-              <Link to="/" className={`${showLogo ? "hidden" : "block"}`}>
-                <img src={goToHome} className="w-3/4 h-12" alt="" />
-              </Link>
-            </div> */}
             <ul>{dashboardItems}</ul>
           </div>
         </div>

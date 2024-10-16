@@ -18,7 +18,7 @@ const WishList = () => {
   const { user } = useAuth();
   // ======= Shoping cart Add ======
   const handlerAddToCart = (reviewData) => {
-    // let quantities = reviewData?.quantity + 1;
+    let quantities = reviewData?.quantity + 1;
     // console.log(quantities);
     if (user && user?.email) {
       const productInfo = {
@@ -26,7 +26,7 @@ const WishList = () => {
         name: reviewData?.name,
         email: reviewData?.email,
         price: reviewData?.price,
-        quantity: reviewData?.quantity + 1,
+        quantity: quantities,
         image: reviewData?.image,
       };
       console.log(productInfo);

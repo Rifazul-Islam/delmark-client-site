@@ -1,41 +1,17 @@
-import React, { useState } from "react";
 import {
   FiShoppingCart,
   FiTruck,
   FiClock,
   FiAlertCircle,
 } from "react-icons/fi";
-import { GiCarrot, GiTomato, GiBroccoli, GiPotato } from "react-icons/gi";
+
 import useAuth from "../../../hooks/useAuth";
-import useShops from "../../../hooks/useShops";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+
 import usePayments from "../../../hooks/usePayments";
 
 const UserDashboard = () => {
   const [payments, refetch] = usePayments();
   const { user } = useAuth();
-
-  const recentOrders = [
-    {
-      id: "#12345",
-      items: "Carrots, Tomatoes, Broccoli",
-      total: "$25.99",
-      status: "Delivered",
-    },
-    {
-      id: "#12346",
-      items: "Potatoes, Onions",
-      total: "$18.50",
-      status: "Processing",
-    },
-    {
-      id: "#12347",
-      items: "Spinach, Kale, Cucumber",
-      total: "$22.75",
-      status: "Pending",
-    },
-  ];
 
   const promotions = [
     { title: "Summer Veggie Bundle", discount: "20% off", code: "SUMMER20" },
@@ -78,7 +54,12 @@ const UserDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500">Delivered</p>
-                <h2 className="text-3xl font-bold text-blue-600">0</h2>
+                <h2 className="text-3xl font-bold text-blue-600">
+                  {
+                    payments?.filter((item) => item?.status === "Delivered")
+                      .length
+                  }
+                </h2>
               </div>
               <FiTruck className="text-4xl text-blue-500" />
             </div>
@@ -88,7 +69,10 @@ const UserDashboard = () => {
               <div>
                 <p className="text-gray-500">Pending</p>
                 <h2 className="text-3xl font-bold text-yellow-600">
-                  {payments?.length}
+                  {
+                    payments?.filter((item) => item?.status === "padding")
+                      .length
+                  }
                 </h2>
               </div>
               <FiClock className="text-4xl text-yellow-500" />
@@ -106,7 +90,7 @@ const UserDashboard = () => {
         </div>
 
         {/* Recent Orders and Promotions */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8 shadow-2xl border-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8 shadow-2xl ">
           <div className="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-semibold text-green-800 mb-4">
               Recent Orders

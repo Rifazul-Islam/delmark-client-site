@@ -14,6 +14,7 @@ const MenuItems = () => {
     },
   });
 
+  console.log(categories);
   // console.log("check the Popurlar Data", popular);
   // const categories = [
   //   {
@@ -72,12 +73,8 @@ const MenuItems = () => {
 
   return (
     <div className="mb-16 bg-base-100">
-      <SelectTitle
-        subTitle={"Shop by Category "}
-        title={" Popular on the Shofi store."}
-      />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8 px-16  ">
+      <h2 className="text-xl font-inter font-medium px-16 "> Categories </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-2 mb-8 px-16  ">
         {categories.map((item) => (
           <MenuCard item={item} key={item.id} />
         ))}
