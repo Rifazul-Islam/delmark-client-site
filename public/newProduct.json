@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "New Collocet Ripe",
+    "category": "fruits",
+    "image": "https://i.ibb.co.com/hs5bqcp/fruits-removebg-preview.png"
+  },
+  {
+    "id": 2,
+    "name": "New Collocet Ripe",
+    "category": "fruits",
+    "image": " https://i.ibb.co.com/HpLNNX7/fresh-ripe-red-strawberry.png"
+  },
+  {
+    "id": 3,
+    "name": "Fresh Vagetable Food",
+    "category": "fruits",
+    "image": "https://i.ibb.co.com/SNVvWtp/vegetable-food-nutritiou.png"
+  },
+
+  {
+    "id": 4,
+    "name": "New Frozen Products",
+    "category": "fruits",
+    "image": "https://i.ibb.co.com/NTcB1rj/Frozen.png"
+  },
+  {
+    "id": 5,
+    "name": "Fresh Foods",
+    "category": "fruits",
+    "image": " https://i.ibb.co.com/16Lpj9s/Ripe.png"
+  }
+]
