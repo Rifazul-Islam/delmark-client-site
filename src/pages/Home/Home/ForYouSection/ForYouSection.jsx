@@ -15,7 +15,11 @@ const ForYouSection = () => {
       <h3 className="text-xl mb-4 font-inter font-medium pl-2 ">
         Letest Products
       </h3>
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 px-3 cursor-pointer">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="3000"
+        className="grid grid-cols-1 lg:grid-cols-5 gap-4 px-3 cursor-pointer"
+      >
         {products?.map((item) => (
           <div key={item?.id} className="bg-slate-50 border-2 rounded-md">
             <img className="h-full" src={item?.image} alt="" />
