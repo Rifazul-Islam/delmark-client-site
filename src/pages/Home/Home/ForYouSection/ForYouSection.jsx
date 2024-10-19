@@ -3,6 +3,7 @@ import { json } from "react-router-dom";
 
 const ForYouSection = () => {
   const [products, setProducts] = useState();
+  // this is Pacing Data
   useEffect(() => {
     fetch("/newProduct.json")
       .then((res) => res.json())
